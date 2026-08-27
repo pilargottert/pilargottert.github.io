@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education — Pilar Göttert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6ED;
+    --paper-deep:#F1EADA;
+    --ink:#2B2A26;
+    --ink-soft:#6E6456;
+    --ochre:#C68A2E;
+    --ochre-deep:#A66F1E;
+    --teal:#2F6E68;
+    --teal-deep:#204B47;
+    --line: rgba(43,42,38,0.14);
+    --radius: 14px;
+    --maxw: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+  }
+  .wrap{
+    max-width: var(--maxw);
+    margin:0 auto;
+    padding: 0 28px;
+  }
+
+  nav.topnav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(250,246,237,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.topnav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  nav.topnav .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    text-decoration:none;
+  }
+  nav.topnav ul{
+    list-style:none;
+    display:flex;
+    gap:22px;
+    margin:0;
+    padding:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+  }
+  nav.topnav a{ text-decoration:none; }
+  nav.topnav a:hover{ color:var(--ochre-deep); }
+  @media (max-width: 640px){
+    nav.topnav ul{ gap:14px; font-size:0.72rem; }
+  }
+
+  .page-head{
+    padding: 64px 0 20px;
+  }
+  .back-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    text-decoration:none;
+    color:var(--ink-soft);
+  }
+  .back-link:hover{ color:var(--ochre-deep); }
+  h1.page-title{
+    margin-top:18px;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+  p.page-sub{
+    margin-top:14px;
+    max-width:60ch;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+
+  section{
+    padding: 40px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-head{ margin-bottom:28px; }
+  .section-head h2{ font-size: clamp(1.4rem, 3vw, 1.8rem); margin-top:6px; }
+
+  .edu-card{
+    background:var(--paper-deep);
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    padding:28px 26px;
+    margin-bottom:22px;
+  }
+  .edu-card .when{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--teal-deep);
+    background:rgba(47,110,104,0.1);
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:100px;
+  }
+  .edu-card h3{
+    font-size:1.3rem;
+    margin-top:12px;
+  }
+  .edu-card .school{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .edu-card .detail{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:0.96rem;
+  }
+  .thesis-box{
+    margin-top:16px;
+    padding:16px 18px;
+    border-left:3px solid var(--ochre);
+    background: var(--paper);
+    border-radius: 0 10px 10px 0;
+  }
+  .thesis-box .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ochre-deep);
+  }
+  .thesis-box h4{
+    font-size:1.02rem;
+    margin-top:8px;
+  }
+  .thesis-box p{
+    margin-top:8px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .award{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--teal-deep);
+    background:rgba(47,110,104,0.1);
+    padding:2px 9px;
+    border-radius:100px;
+  }
+  .poster-frame{
+    margin-top:16px;
+  }
+  .poster-frame img{
+    display:block;
+    width:100%;
+    border-radius:10px;
+    border:1px solid var(--line);
+    box-shadow: 0 10px 24px -16px rgba(43,42,38,0.4);
+    transition: transform 0.18s ease;
+  }
+  .poster-frame a:hover img{
+    transform: scale(1.01);
+  }
+  .poster-link{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    text-decoration:none;
+    border-bottom:1.5px solid var(--ochre);
+    padding-bottom:2px;
+  }
+  .poster-link:hover{ color:var(--ochre-deep); }
+  .thesis-pending{
+    margin-top:16px;
+    padding:14px 18px;
+    border:1px dashed var(--line);
+    border-radius:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+
+  .cert-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .cert-list li{
+    padding: 16px 0;
+    border-top:1px dashed var(--line);
+  }
+  .cert-list li:first-child{ border-top:none; }
+  .cert-list .cert-name{
+    font-weight:500;
+  }
+  .cert-list .cert-when{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+  }
+  .cert-list p{
+    margin-top:6px;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    padding:36px 0 60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pilar Göttert</a>
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap page-head">
+  <a class="back-link" href="index.html">← Back to home</a>
+  <h1 class="page-title">Education</h1>
+  <p class="page-sub">
+    Degrees, thesis work, and certifications.
+  </p>
+</header>
+
+<section class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Degree</span>
+    <h2>Florida Institute of Technology</h2>
+  </div>
+  <div class="edu-card">
+    <span class="when">2020</span>
+    <h3>B.S. Ocean Engineering, Minor in Sustainability</h3>
+    <p class="school">Melbourne, Florida, USA</p>
+
+    <div class="thesis-box">
+      <span class="label">Sustainability Minor Thesis</span>
+      <h4>Effects of Two Perforation Designs on Monopile Structures for Offshore Wind Turbines</h4>
+      <p>Structural integrity analysis of perforated monopile designs for shallow-water offshore wind foundations. Co-authored and presented via research poster at the Florida Tech student research showcase, 2020.</p>
+      <span class="award">🏆 Outstanding Student of the Year Award</span>
+      <div class="poster-frame">
+        <a href="assets/thesis-poster.pdf" target="_blank" rel="noopener">
+          <img src="assets/thesis-poster.jpg" alt="Research poster: Effects of Two Perforation Designs on Monopile Structures for Offshore Wind Turbines" loading="lazy">
+        </a>
+        <a class="poster-link" href="assets/thesis-poster.pdf" target="_blank" rel="noopener">View full poster (PDF) →</a>
+      </div>
+    </div>
+
+    <div class="thesis-pending">
+      Ocean Engineering major thesis — details coming soon.
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Degree</span>
+    <h2>University Canada West</h2>
+  </div>
+  <div class="edu-card">
+    <span class="when">2023</span>
+    <h3>MBA, Strategic Management</h3>
+    <p class="school">Vancouver, Canada</p>
+    <p class="detail">Focus: Strategic Management, Project Management, Operations, Financial Planning.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Certificates &amp; Training</span>
+    <h2>Courses &amp; Certifications</h2>
+  </div>
+  <ul class="cert-list">
+    <li>
+      <span class="cert-name">Engineering for New Energy — Forage Job Simulation</span><br>
+      <span class="cert-when">APA Group · June 2025</span>
+      <p>Modeled solar PV and battery storage capacity and emissions offset; drafted technical scopes and capacity-factor/emissions analyses.</p>
+    </li>
+    <li>
+      <span class="cert-name">Excel Certifications (8 completed)</span><br>
+      <span class="cert-when">Including Microsoft Office Specialist — Associate &amp; Expert</span>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  © <span id="year"></span> Pilar Göttert
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
