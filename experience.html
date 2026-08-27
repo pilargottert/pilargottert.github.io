@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — Pilar Göttert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6ED;
+    --paper-deep:#F1EADA;
+    --ink:#2B2A26;
+    --ink-soft:#6E6456;
+    --ochre:#C68A2E;
+    --ochre-deep:#A66F1E;
+    --teal:#2F6E68;
+    --teal-deep:#204B47;
+    --line: rgba(43,42,38,0.14);
+    --radius: 14px;
+    --maxw: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+  }
+  .wrap{
+    max-width: var(--maxw);
+    margin:0 auto;
+    padding: 0 28px;
+  }
+
+  nav.topnav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(250,246,237,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.topnav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  nav.topnav .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    text-decoration:none;
+  }
+  nav.topnav ul{
+    list-style:none;
+    display:flex;
+    gap:22px;
+    margin:0;
+    padding:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+  }
+  nav.topnav a{ text-decoration:none; }
+  nav.topnav a:hover{ color:var(--ochre-deep); }
+  @media (max-width: 640px){
+    nav.topnav ul{ gap:14px; font-size:0.72rem; }
+  }
+
+  .page-head{
+    padding: 64px 0 20px;
+  }
+  .back-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    text-decoration:none;
+    color:var(--ink-soft);
+  }
+  .back-link:hover{ color:var(--ochre-deep); }
+  h1.page-title{
+    margin-top:18px;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+  p.page-sub{
+    margin-top:14px;
+    max-width:60ch;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+
+  .timeline{
+    padding: 40px 0 80px;
+  }
+  .role{
+    position:relative;
+    padding: 32px 0 32px 32px;
+    border-left:2px solid var(--line);
+  }
+  .role:last-child{ padding-bottom:0; }
+  .role::before{
+    content:"";
+    position:absolute;
+    left:-7px;
+    top:36px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2.5px solid var(--ochre);
+  }
+  .role-when{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--teal-deep);
+    background:rgba(47,110,104,0.1);
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:100px;
+  }
+  .role h2{
+    font-size:1.5rem;
+    margin-top:12px;
+  }
+  .role .company{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .role ul{
+    margin:18px 0 0;
+    padding-left:20px;
+  }
+  .role li{
+    color:var(--ink-soft);
+    font-size:0.97rem;
+    margin-bottom:10px;
+  }
+  .role li::marker{ color:var(--ochre-deep); }
+
+  footer{
+    padding:36px 0 60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pilar Göttert</a>
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap page-head">
+  <a class="back-link" href="index.html">← Back to home</a>
+  <h1 class="page-title">Experience</h1>
+  <p class="page-sub">
+    Three progressive roles at an industrial surface-treatment engineering firm — from technical-commercial
+    proposals, to documentation, to mechanical and piping design.
+  </p>
+</header>
+
+<section class="wrap timeline">
+
+  <div class="role">
+    <span class="role-when">Jan 2025 – Mar 2026</span>
+    <h2>Junior Project Engineer — Mechanical &amp; Piping Design</h2>
+    <p class="company">Gottert S.A., Buenos Aires, Argentina</p>
+    <ul>
+      <li>Independently produced 10 assembly layout drawings for a full pretreatment system, beyond standard section scope, each mapping 50–100 components with assembly call-outs (fastener selection, welding requirements, orientation).</li>
+      <li>Owned mechanical design and drawing generation in Solid Edge for project sections across 8–10 industrial surface-treatment installations, producing up to 50–60 manufacturing drawings on larger sections.</li>
+      <li>Generated ~40 detail drawings for an arc movement system and ~25–30 structural drawings for its supporting frame, including full assembly documentation, for one installation.</li>
+      <li>Conducted 3–5 on-site technical assessments, accompanied by senior engineers, and built commissioning checklists to support technical-assistance handover at project close-out.</li>
+      <li>Collaborated daily with sales, procurement, manufacturing, and technical-assistance teams to track progress and resolve open technical issues across projects.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <span class="role-when">May 2023 – Jan 2025</span>
+    <h2>Documentation Engineer</h2>
+    <p class="company">Gottert S.A., Buenos Aires, Argentina</p>
+    <ul>
+      <li>Authored close to 20 comprehensive technical manuals (~1 per month) over two years, covering paint booths, air handling units, pretreatment systems, drying ovens, and transportation systems.</li>
+      <li>Jointly defined documentation content standards with engineering leadership, improving consistency across manual types.</li>
+      <li>Developed component schematics and equipment lists supporting project handover and client troubleshooting.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <span class="role-when">May 2020 – Sep 2021</span>
+    <h2>Technical Commercial Proposals</h2>
+    <p class="company">Gottert S.A., Buenos Aires, Argentina</p>
+    <ul>
+      <li>Prepared 3–5 technical-commercial proposals per day for industrial surface-treatment installations; within ~6 months, began sending simpler proposals directly to clients.</li>
+      <li>Built a standardized proposal template library for the company's standard equipment lines, cutting turnaround for repeat configurations from hours to minutes and freeing capacity for custom proposals.</li>
+    </ul>
+  </div>
+
+</section>
+
+<footer>
+  © <span id="year"></span> Pilar Göttert
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
