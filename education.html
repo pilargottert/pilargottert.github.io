@@ -242,6 +242,100 @@
     color:var(--ink-soft);
   }
 
+  /* ---- COURSE HIGHLIGHT CARDS ---- */
+  .course-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:20px;
+    margin-top:30px;
+  }
+  .course-card{
+    background:var(--paper-deep);
+    border-radius:var(--radius);
+    padding:24px 22px;
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+  }
+  .course-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--teal-deep);
+    background: rgba(47,110,104,0.1);
+    padding:3px 9px;
+    border-radius:100px;
+    display:inline-block;
+    width:fit-content;
+  }
+  .course-card h3{
+    font-size:1.12rem;
+    margin-top:12px;
+    line-height:1.3;
+  }
+  .course-card p{
+    color:var(--ink-soft);
+    font-size:0.92rem;
+    margin-top:10px;
+    flex-grow:1;
+  }
+  .course-card .stat{
+    margin-top:12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ochre-deep);
+    background:rgba(198,138,46,0.1);
+    padding:3px 9px;
+    border-radius:100px;
+    display:inline-block;
+    width:fit-content;
+  }
+
+  /* ---- RISK MATRIX TABLE ---- */
+  .matrix-wrap{
+    margin-top:30px;
+    overflow-x:auto;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+  }
+  table.risk-matrix{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.82rem;
+    min-width:720px;
+  }
+  table.risk-matrix th{
+    background:var(--paper-deep);
+    text-align:left;
+    padding:10px 12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--teal-deep);
+    border-bottom:1px solid var(--line);
+  }
+  table.risk-matrix td{
+    padding:10px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+    color:var(--ink-soft);
+  }
+  table.risk-matrix td.role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  table.risk-matrix tr:last-child td{ border-bottom:none; }
+  .matrix-note{
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+  }
+
   footer{
     padding:36px 0 60px;
     font-family:'IBM Plex Mono', monospace;
@@ -312,8 +406,137 @@
     <span class="when">2023</span>
     <h3>MBA, Strategic Management</h3>
     <p class="school">Vancouver, Canada</p>
-    <p class="detail">Focus: Strategic Management, Project Management, Operations, Financial Planning.</p>
+    <p class="detail">Focus: Strategic Management, Project Management, Operations, Financial Planning. Nine courses' worth of applied project work is highlighted below.</p>
   </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">MBA Coursework</span>
+    <h2>Applied projects</h2>
+    <p class="page-sub" style="margin-top:0;">Real deliverables from across the program — client work, financial analysis, and strategy projects. Group projects are credited by team size; individual work is noted.</p>
+  </div>
+
+  <div class="course-grid">
+
+    <div class="course-card">
+      <span class="tag">CMPT 641 · Digital Transformation</span>
+      <h3>Data governance &amp; KMS build</h3>
+      <p>Group consulting project for an external client: assessed data management maturity across 7 dimensions, mapped current vs. target states, and built a working SharePoint knowledge management system with department pages, a process-automation dashboard, and workflow analytics.</p>
+      <span class="stat">Team of 7</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">FNCE 625 · Investment Analysis</span>
+      <h3>Portfolio simulation</h3>
+      <p>Semester-long simulated portfolio management. Deliberately built a hedge between oil &amp; gas and renewable energy holdings (NextEra Energy, Peacock Energy, CONSOL Energy vs. ExxonMobil, Shell) to stay resilient regardless of which sector moved.</p>
+      <span class="stat">+0.4452% return · Individual</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">MGMT 640 · Project Management</span>
+      <h3>Risk response matrix</h3>
+      <p>Full project risk register for a dental clinic build-out: identified risks across budget, schedule, permitting, and supply chain, with response strategies, contingency plans, and triggers for each. Full matrix below.</p>
+      <span class="stat">Team of 5</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">BUSI 650 · Business Analytics</span>
+      <h3>IKEA vs. Canadian Tire</h3>
+      <p>Comparative business analysis using public financial data: strengths/weaknesses, revenue and net income trend forecasting through 2023, and strategic recommendations, delivered via presentation and a Tableau dashboard.</p>
+      <span class="stat">Team of 7</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">BUSI 645 · E-commerce</span>
+      <h3>Digital marketing audit &amp; strategy</h3>
+      <p>Full consulting-style deliverable for a real client: current-state review, SWOT/TOWS/GAP analysis, SEO keyword tables, a PPC campaign plan with bid strategy, content plan, and Gantt implementation plan, benchmarked against real competitors.</p>
+      <span class="stat">Individual</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">BUSI 645 · E-commerce</span>
+      <h3>Food-import e-commerce concept</h3>
+      <p>Original business concept for an e-commerce store selling home-country foods to immigrants in Canada: full Business Model Canvas, TOWS analysis, SEO/PPC plans, and financial projections.</p>
+      <span class="stat">Team of 5</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">FNCE 623 · Financial Management</span>
+      <h3>Valuation &amp; ratio analysis</h3>
+      <p>Ratio and net income growth analysis, CAPM and WACC calculations, bond valuation, portfolio beta, and NPV — including a personal application comparing the lifetime future value of investing in a college education vs. not.</p>
+      <span class="stat">Individual</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">FNCE 627 · Personal Financial Planning</span>
+      <h3>Home affordability analysis</h3>
+      <p>Full mortgage affordability case: qualitative buying criteria, GDS/TDS affordability calculations, a 25-year amortization schedule, and matched property listing recommendations for a client couple.</p>
+      <span class="stat">Individual</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">FNCE 627 · Personal Financial Planning</span>
+      <h3>Retirement planning case</h3>
+      <p>Comprehensive retirement plan: life expectancy modeling, current net worth statement, and projected retirement expenses and income (CPP, OAS, pension, RRSP/TFSA/GIC drawdown) across Go-Go, Slow-Go, and No-Go retirement years.</p>
+      <span class="stat">Individual</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">BUSI 660 · Small Business Management</span>
+      <h3>Marketing strategy for a sports-tech startup</h3>
+      <p>Full marketing strategy for a real sports-technology startup client: podcast guest outreach strategy, email and content marketing, PR, a $9,400 budget, project timeline, and a four-part feasibility analysis.</p>
+      <span class="stat">Team of 6</span>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">MGMT 661 · Strategic Management</span>
+      <h3>Growth strategy for a photo-sharing startup</h3>
+      <p>Strategic analysis for a real photo-sharing app client: competitive benchmarking against ~35 competitors, SWOT/TOWS analysis, a tiered pricing strategy, and international expansion research including target-market sizing and go-to-market recommendations.</p>
+      <span class="stat">Team of 7</span>
+    </div>
+
+  </div>
+
+  <div class="section-head" style="margin-top:44px;">
+    <span class="eyebrow">MGMT 640 · Detail</span>
+    <h2>Full risk response matrix</h2>
+  </div>
+  <div class="matrix-wrap">
+    <table class="risk-matrix">
+      <thead>
+        <tr><th>Risk</th><th>Response</th><th>Contingency plan</th><th>Trigger</th><th>Owner</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Failure of equipment specifications</td><td>Redesign/restructure budget &amp; schedule; track and measure progress</td><td>Proceed with other project sections; quotations from other suppliers</td><td>—</td><td class="role">Client Relations Lead</td></tr>
+        <tr><td>Constant change of requirements</td><td>Redesign/restructure budget &amp; schedule; track and measure progress</td><td>Constant communication with client; proceed with other sections</td><td>Client changes design/ideas; regulatory changes</td><td class="role">Client Relations Lead</td></tr>
+        <tr><td>Reliability and performance</td><td>Track/measure progress; monitor and control against requirements</td><td>Constant client communication; ongoing checks</td><td>Staff shortage; lack of supervision; inaccurate timing</td><td class="role">Operations Lead</td></tr>
+        <tr><td>Technology operations</td><td>—</td><td>—</td><td>—</td><td class="role">Compliance &amp; Permits Lead</td></tr>
+        <tr><td>Connections inconsistency</td><td>—</td><td>—</td><td>—</td><td class="role">Compliance &amp; Permits Lead</td></tr>
+        <tr><td>Difficulty with installations</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections</td><td>Building issues; lack of qualified staff/equipment</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
+        <tr><td>Delays in material</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Material shortage; arrival timing</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
+        <tr><td>Delays from local problems</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; communication with mall staff</td><td>Utility shutoffs; mall closures</td><td class="role">Client Relations Lead</td></tr>
+        <tr><td>Lack of staff</td><td>Advance planning &amp; admin work</td><td>Subcontracting/outsourcing</td><td>Competing jobs; staffing shortage</td><td class="role">Operations Lead</td></tr>
+        <tr><td>Delays in specialized furniture delivery</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Shortage; arrival timing</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
+        <tr><td>Delay in office furniture delivery</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Shortage; arrival timing</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
+        <tr><td>Delay from weather conditions</td><td>Realistic schedules; plan around seasonal weather</td><td>Proceed with other sections; continue indoor work</td><td>Weather/natural disaster prevents work</td><td class="role">Operations Lead</td></tr>
+        <tr><td>Delay from inspection findings</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Inspector shortage; failed inspection</td><td class="role">Compliance &amp; Permits Lead</td></tr>
+        <tr><td>Delay in health permits</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Permit worker shortage; standards not met</td><td class="role">Compliance &amp; Permits Lead</td></tr>
+        <tr><td>Delay from government restrictions</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Government worker shortage; standards not met</td><td class="role">Compliance &amp; Permits Lead</td></tr>
+        <tr><td>Increase in material costs</td><td>Realistic budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; supplier price increases</td><td class="role">Pilar (Budget Lead)</td></tr>
+        <tr><td>Increase in furniture costs</td><td>Realistic budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; supplier price increases</td><td class="role">Pilar (Budget Lead)</td></tr>
+        <tr><td>Inaccurate time estimation</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Material/permit delays</td><td class="role">Operations Lead</td></tr>
+        <tr><td>Budget shortage during remodel</td><td>Realistic schedule &amp; budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; permit/supplier cost increases</td><td class="role">Pilar (Budget Lead)</td></tr>
+        <tr><td>Inaccurate planning</td><td>Realistic schedule &amp; budget</td><td>Client communication; proceed with other sections</td><td>Staff shortage; inaccurate timing</td><td class="role">Operations Lead</td></tr>
+        <tr><td>Lack of monitoring/controlling</td><td>Realistic budget; restructure as needed</td><td>Constant communication and checks</td><td>Staff shortage; lack of supervision</td><td class="role">Pilar (Budget Lead)</td></tr>
+        <tr><td>Low communication</td><td>—</td><td>Constant communication with client and team</td><td>Communication breakdowns; supplier timing issues</td><td class="role">Pilar (Budget Lead)</td></tr>
+        <tr><td>Delays from client design changes</td><td>Redesign/restructure budget &amp; schedule</td><td>Constant client communication</td><td>Client changes design/ideas</td><td class="role">Client Relations Lead</td></tr>
+        <tr><td>Client acceptance</td><td>—</td><td>Constant client communication</td><td>Client dislikes final product</td><td class="role">Client Relations Lead</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-note">Names replaced with functional roles; original assignments preserved.</p>
+
 </section>
 
 <section class="wrap">
@@ -323,13 +546,26 @@
   </div>
   <ul class="cert-list">
     <li>
+      <span class="cert-name">FOIPPA Foundations — Privacy and Access Fundamentals</span><br>
+      <span class="cert-when">BC Ministry of Citizens' Services · Dec 2022</span>
+    </li>
+    <li>
       <span class="cert-name">Engineering for New Energy — Forage Job Simulation</span><br>
       <span class="cert-when">APA Group · June 2025</span>
       <p>Modeled solar PV and battery storage capacity and emissions offset; drafted technical scopes and capacity-factor/emissions analyses.</p>
     </li>
     <li>
-      <span class="cert-name">Excel Certifications (8 completed)</span><br>
-      <span class="cert-when">Including Microsoft Office Specialist — Associate &amp; Expert</span>
+      <span class="cert-name">Master Microsoft Excel — Learning Path</span><br>
+      <span class="cert-when">LinkedIn Learning · Aug 30, 2022 · 25h 39m · completed during MBA coursework</span>
+      <p>Includes: Excel Essential Training (Office 365/Microsoft 365), Excel: Advanced Formulas and Functions, Excel: Advanced Formatting Techniques, Excel: Charts in Depth, Excel: Creating a Basic Dashboard, Excel: PivotTables in Depth, and Cert Prep: Excel Associate (Microsoft Office Specialist, Office 2019 &amp; 365).</p>
+    </li>
+    <li>
+      <span class="cert-name">Advanced Google Analytics</span><br>
+      <span class="cert-when">Google Analytics Academy · completed during MBA coursework (E-commerce) · expires Aug 2025</span>
+    </li>
+    <li>
+      <span class="cert-name">Google Analytics for Beginners</span><br>
+      <span class="cert-when">Google Analytics Academy · completed during MBA coursework (E-commerce) · expires Jul 2025</span>
     </li>
   </ul>
 </section>
