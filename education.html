@@ -208,6 +208,34 @@
     padding-bottom:2px;
   }
   .poster-link:hover{ color:var(--ochre-deep); }
+  .awards-list{
+    margin-top:16px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .award-item{
+    padding:14px 16px;
+    background:var(--paper);
+    border-radius:10px;
+    border:1px solid var(--line);
+  }
+  .award-item .award-title{
+    font-weight:500;
+    font-size:0.98rem;
+  }
+  .award-item .award-when{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--teal-deep);
+    margin-left:8px;
+  }
+  .award-item p{
+    margin-top:6px;
+    font-size:0.87rem;
+    color:var(--ink-soft);
+  }
+
   .thesis-pending{
     margin-top:16px;
     padding:14px 18px;
@@ -294,10 +322,18 @@
 
   /* ---- RISK MATRIX TABLE ---- */
   .matrix-wrap{
-    margin-top:30px;
+    margin-top:16px;
     overflow-x:auto;
     border-radius:var(--radius);
     border:1px solid var(--line);
+  }
+  .matrix-details summary{
+    list-style:none;
+    display:inline-block;
+  }
+  .matrix-details summary::-webkit-details-marker{ display:none; }
+  .matrix-details[open] summary{
+    margin-bottom:4px;
   }
   table.risk-matrix{
     width:100%;
@@ -374,25 +410,31 @@
     <h2>Florida Institute of Technology</h2>
   </div>
   <div class="edu-card">
-    <span class="when">2020</span>
+    <span class="when">Aug 2016 – May 2020</span>
     <h3>B.S. Ocean Engineering, Minor in Sustainability</h3>
     <p class="school">Melbourne, Florida, USA</p>
+
+    <div class="awards-list">
+      <div class="award-item">
+        <span class="award-title">Distinguished Student Scholar</span><span class="award-when">Apr 2019</span>
+        <p>Awarded to undergraduate students who have completed more than 52 semester hours at Florida Institute of Technology with cumulative GPAs of 3.8 or higher.</p>
+      </div>
+      <div class="award-item">
+        <span class="award-title">Outstanding Student of the Year</span><span class="award-when">Apr 2019</span>
+        <p>Recognizes well-rounded, active student scholars. Goes beyond academic achievement to include contribution to and beyond Florida Tech, involvement in student organizations, honor societies, professional organizations, athletics, previous awards, research projects, presentations, career goals and objectives.</p>
+      </div>
+    </div>
 
     <div class="thesis-box">
       <span class="label">Sustainability Minor Thesis</span>
       <h4>Effects of Two Perforation Designs on Monopile Structures for Offshore Wind Turbines</h4>
       <p>Structural integrity analysis of perforated monopile designs for shallow-water offshore wind foundations. Co-authored and presented via research poster at the Florida Tech student research showcase, 2020.</p>
-      <span class="award">🏆 Outstanding Student of the Year Award</span>
       <div class="poster-frame">
         <a href="assets/thesis-poster.pdf" target="_blank" rel="noopener">
           <img src="assets/thesis-poster.jpg" alt="Research poster: Effects of Two Perforation Designs on Monopile Structures for Offshore Wind Turbines" loading="lazy">
         </a>
         <a class="poster-link" href="assets/thesis-poster.pdf" target="_blank" rel="noopener">View full poster (PDF) →</a>
       </div>
-    </div>
-
-    <div class="thesis-pending">
-      Ocean Engineering major thesis — details coming soon.
     </div>
   </div>
 </section>
@@ -403,27 +445,24 @@
     <h2>University Canada West</h2>
   </div>
   <div class="edu-card">
-    <span class="when">2023</span>
+    <span class="when">Oct 2021 – Apr 2023</span>
     <h3>MBA, Strategic Management</h3>
     <p class="school">Vancouver, Canada</p>
     <p class="detail">Focus: Strategic Management, Project Management, Operations, Financial Planning. Nine courses' worth of applied project work is highlighted below.</p>
-  </div>
-</section>
 
-<section class="wrap">
-  <div class="section-head">
-    <span class="eyebrow">MBA Coursework</span>
-    <h2>Applied projects</h2>
-    <p class="page-sub" style="margin-top:0;">Real deliverables from across the program — client work, financial analysis, and strategy projects. Group projects are credited by team size; individual work is noted.</p>
-  </div>
+    <div class="section-head" style="margin-top:32px;">
+      <span class="eyebrow">MBA Coursework</span>
+      <h2 style="font-size:1.3rem;">Applied projects</h2>
+      <p class="page-sub" style="margin-top:0;">Real deliverables from across the program — client work, financial analysis, and strategy projects. Group projects are credited by team size; individual work is noted.</p>
+    </div>
 
-  <div class="course-grid">
+    <div class="course-grid">
 
-    <div class="course-card">
-      <span class="tag">CMPT 641 · Digital Transformation</span>
-      <h3>Data governance &amp; KMS build</h3>
-      <p>Group consulting project for an external client: assessed data management maturity across 7 dimensions, mapped current vs. target states, and built a working SharePoint knowledge management system with department pages, a process-automation dashboard, and workflow analytics.</p>
-      <span class="stat">Team of 7</span>
+      <div class="course-card">
+        <span class="tag">CMPT 641 · Digital Transformation</span>
+        <h3>Data governance &amp; KMS build</h3>
+        <p>Group consulting project for an external client: assessed data management maturity across 7 dimensions, mapped current vs. target states, and built a working SharePoint knowledge management system with department pages, a process-automation dashboard, and workflow analytics.</p>
+        <span class="stat">Team of 7</span>
     </div>
 
     <div class="course-card">
@@ -498,45 +537,48 @@
 
   </div>
 
-  <div class="section-head" style="margin-top:44px;">
-    <span class="eyebrow">MGMT 640 · Detail</span>
-    <h2>Full risk response matrix</h2>
-  </div>
-  <div class="matrix-wrap">
-    <table class="risk-matrix">
-      <thead>
-        <tr><th>Risk</th><th>Response</th><th>Contingency plan</th><th>Trigger</th><th>Owner</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Failure of equipment specifications</td><td>Redesign/restructure budget &amp; schedule; track and measure progress</td><td>Proceed with other project sections; quotations from other suppliers</td><td>—</td><td class="role">Client Relations Lead</td></tr>
-        <tr><td>Constant change of requirements</td><td>Redesign/restructure budget &amp; schedule; track and measure progress</td><td>Constant communication with client; proceed with other sections</td><td>Client changes design/ideas; regulatory changes</td><td class="role">Client Relations Lead</td></tr>
-        <tr><td>Reliability and performance</td><td>Track/measure progress; monitor and control against requirements</td><td>Constant client communication; ongoing checks</td><td>Staff shortage; lack of supervision; inaccurate timing</td><td class="role">Operations Lead</td></tr>
-        <tr><td>Technology operations</td><td>—</td><td>—</td><td>—</td><td class="role">Compliance &amp; Permits Lead</td></tr>
-        <tr><td>Connections inconsistency</td><td>—</td><td>—</td><td>—</td><td class="role">Compliance &amp; Permits Lead</td></tr>
-        <tr><td>Difficulty with installations</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections</td><td>Building issues; lack of qualified staff/equipment</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
-        <tr><td>Delays in material</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Material shortage; arrival timing</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
-        <tr><td>Delays from local problems</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; communication with mall staff</td><td>Utility shutoffs; mall closures</td><td class="role">Client Relations Lead</td></tr>
-        <tr><td>Lack of staff</td><td>Advance planning &amp; admin work</td><td>Subcontracting/outsourcing</td><td>Competing jobs; staffing shortage</td><td class="role">Operations Lead</td></tr>
-        <tr><td>Delays in specialized furniture delivery</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Shortage; arrival timing</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
-        <tr><td>Delay in office furniture delivery</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Shortage; arrival timing</td><td class="role">Procurement &amp; Logistics Lead</td></tr>
-        <tr><td>Delay from weather conditions</td><td>Realistic schedules; plan around seasonal weather</td><td>Proceed with other sections; continue indoor work</td><td>Weather/natural disaster prevents work</td><td class="role">Operations Lead</td></tr>
-        <tr><td>Delay from inspection findings</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Inspector shortage; failed inspection</td><td class="role">Compliance &amp; Permits Lead</td></tr>
-        <tr><td>Delay in health permits</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Permit worker shortage; standards not met</td><td class="role">Compliance &amp; Permits Lead</td></tr>
-        <tr><td>Delay from government restrictions</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Government worker shortage; standards not met</td><td class="role">Compliance &amp; Permits Lead</td></tr>
-        <tr><td>Increase in material costs</td><td>Realistic budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; supplier price increases</td><td class="role">Pilar (Budget Lead)</td></tr>
-        <tr><td>Increase in furniture costs</td><td>Realistic budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; supplier price increases</td><td class="role">Pilar (Budget Lead)</td></tr>
-        <tr><td>Inaccurate time estimation</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Material/permit delays</td><td class="role">Operations Lead</td></tr>
-        <tr><td>Budget shortage during remodel</td><td>Realistic schedule &amp; budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; permit/supplier cost increases</td><td class="role">Pilar (Budget Lead)</td></tr>
-        <tr><td>Inaccurate planning</td><td>Realistic schedule &amp; budget</td><td>Client communication; proceed with other sections</td><td>Staff shortage; inaccurate timing</td><td class="role">Operations Lead</td></tr>
-        <tr><td>Lack of monitoring/controlling</td><td>Realistic budget; restructure as needed</td><td>Constant communication and checks</td><td>Staff shortage; lack of supervision</td><td class="role">Pilar (Budget Lead)</td></tr>
-        <tr><td>Low communication</td><td>—</td><td>Constant communication with client and team</td><td>Communication breakdowns; supplier timing issues</td><td class="role">Pilar (Budget Lead)</td></tr>
-        <tr><td>Delays from client design changes</td><td>Redesign/restructure budget &amp; schedule</td><td>Constant client communication</td><td>Client changes design/ideas</td><td class="role">Client Relations Lead</td></tr>
-        <tr><td>Client acceptance</td><td>—</td><td>Constant client communication</td><td>Client dislikes final product</td><td class="role">Client Relations Lead</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="matrix-note">Names replaced with functional roles; original assignments preserved.</p>
+    <div class="section-head" style="margin-top:44px;">
+      <span class="eyebrow">MGMT 640 · Detail</span>
+      <h2 style="font-size:1.3rem;">Full risk response matrix</h2>
+    </div>
+    <details class="matrix-details">
+      <summary class="poster-link" style="cursor:pointer;">View full risk response matrix (24 risks) →</summary>
+      <div class="matrix-wrap">
+        <table class="risk-matrix">
+          <thead>
+            <tr><th>Risk</th><th>Response</th><th>Contingency plan</th><th>Trigger</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Failure of equipment specifications</td><td>Redesign/restructure budget &amp; schedule; track and measure progress</td><td>Proceed with other project sections; quotations from other suppliers</td><td>—</td></tr>
+            <tr><td>Constant change of requirements</td><td>Redesign/restructure budget &amp; schedule; track and measure progress</td><td>Constant communication with client; proceed with other sections</td><td>Client changes design/ideas; regulatory changes</td></tr>
+            <tr><td>Reliability and performance</td><td>Track/measure progress; monitor and control against requirements</td><td>Constant client communication; ongoing checks</td><td>Staff shortage; lack of supervision; inaccurate timing</td></tr>
+            <tr><td>Technology operations</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>Connections inconsistency</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>Difficulty with installations</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections</td><td>Building issues; lack of qualified staff/equipment</td></tr>
+            <tr><td>Delays in material</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Material shortage; arrival timing</td></tr>
+            <tr><td>Delays from local problems</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; communication with mall staff</td><td>Utility shutoffs; mall closures</td></tr>
+            <tr><td>Lack of staff</td><td>Advance planning &amp; admin work</td><td>Subcontracting/outsourcing</td><td>Competing jobs; staffing shortage</td></tr>
+            <tr><td>Delays in specialized furniture delivery</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Shortage; arrival timing</td></tr>
+            <tr><td>Delay in office furniture delivery</td><td>Realistic schedules; track/measure progress</td><td>Proceed with other sections; alternate supplier quotes</td><td>Shortage; arrival timing</td></tr>
+            <tr><td>Delay from weather conditions</td><td>Realistic schedules; plan around seasonal weather</td><td>Proceed with other sections; continue indoor work</td><td>Weather/natural disaster prevents work</td></tr>
+            <tr><td>Delay from inspection findings</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Inspector shortage; failed inspection</td></tr>
+            <tr><td>Delay in health permits</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Permit worker shortage; standards not met</td></tr>
+            <tr><td>Delay from government restrictions</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Government worker shortage; standards not met</td></tr>
+            <tr><td>Increase in material costs</td><td>Realistic budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; supplier price increases</td></tr>
+            <tr><td>Increase in furniture costs</td><td>Realistic budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; supplier price increases</td></tr>
+            <tr><td>Inaccurate time estimation</td><td>Realistic schedules</td><td>Proceed with other sections</td><td>Material/permit delays</td></tr>
+            <tr><td>Budget shortage during remodel</td><td>Realistic schedule &amp; budget; emergency fund</td><td>Alternate supplier quotes</td><td>Inflation; permit/supplier cost increases</td></tr>
+            <tr><td>Inaccurate planning</td><td>Realistic schedule &amp; budget</td><td>Client communication; proceed with other sections</td><td>Staff shortage; inaccurate timing</td></tr>
+            <tr><td>Lack of monitoring/controlling</td><td>Realistic budget; restructure as needed</td><td>Constant communication and checks</td><td>Staff shortage; lack of supervision</td></tr>
+            <tr><td>Low communication</td><td>—</td><td>Constant communication with client and team</td><td>Communication breakdowns; supplier timing issues</td></tr>
+            <tr><td>Delays from client design changes</td><td>Redesign/restructure budget &amp; schedule</td><td>Constant client communication</td><td>Client changes design/ideas</td></tr>
+            <tr><td>Client acceptance</td><td>—</td><td>Constant client communication</td><td>Client dislikes final product</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
+  </div>
 </section>
 
 <section class="wrap">
