@@ -138,6 +138,60 @@
     .stitch-marker::before{ display:none; }
   }
 
+  .hero-flex{
+    display:flex;
+    align-items:center;
+    gap:44px;
+    flex-wrap:wrap-reverse;
+  }
+  .hero-text{
+    flex:1 1 420px;
+    min-width:280px;
+  }
+  .hero-photo{
+    position:relative;
+    flex:0 0 auto;
+    width:168px;
+    height:168px;
+  }
+  .hero-photo img{
+    width:168px;
+    height:168px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--paper);
+    box-shadow: 0 10px 28px -12px rgba(43,42,38,0.35);
+    position:relative;
+    z-index:2;
+  }
+  .hero-photo::before{
+    content:"";
+    position:absolute;
+    top:-9px;
+    left:-9px;
+    width:186px;
+    height:186px;
+    border-radius:50%;
+    border:2px dashed var(--ochre);
+    z-index:1;
+  }
+  .hero-photo::after{
+    content:"";
+    position:absolute;
+    bottom:2px;
+    right:-6px;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:var(--teal);
+    border:3px solid var(--paper);
+    z-index:3;
+  }
+  @media (max-width: 640px){
+    .hero-photo, .hero-photo img{ width:128px; height:128px; }
+    .hero-photo::before{ width:144px; height:144px; top:-8px; left:-8px; }
+  }
+
   header.hero{
     position:relative;
     padding: 88px 0 64px;
@@ -440,6 +494,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="education.html">Education</a></li>
+      <li><a href="#off-clock">Beyond Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -453,17 +508,24 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="hero-mark"><span class="dot"></span> Buenos Aires, Argentina · Open to work</div>
-    <h1 class="title">Pilar Göttert</h1>
-    <p class="hero-role">Project Engineer — Mechanical Design &amp; Renewable Energy</p>
-    <p class="hero-sub">
-      Mechanical and piping design engineer with a B.S. in Ocean Engineering and an MBA in Strategic Management.
-      I turn specifications into manufacturing-ready drawings and documentation, and I'm building toward a career
-      in renewable energy.
-    </p>
-    <div class="hero-links">
-      <a class="btn primary" href="#work">See my work</a>
-      <a class="btn ghost" href="#contact">Get in touch</a>
+    <div class="hero-flex">
+      <div class="hero-text">
+        <div class="hero-mark"><span class="dot"></span> Buenos Aires, Argentina · Open to work</div>
+        <h1 class="title">Pilar Göttert</h1>
+        <p class="hero-role">Project Engineer — Mechanical Design &amp; Renewable Energy</p>
+        <p class="hero-sub">
+          Mechanical and piping design engineer with a B.S. in Ocean Engineering and an MBA in Strategic Management.
+          I turn specifications into manufacturing-ready drawings and documentation, and I'm building toward a career
+          in renewable energy.
+        </p>
+        <div class="hero-links">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/headshot.jpg" alt="Portrait of Pilar Göttert">
+      </div>
     </div>
   </div>
 </header>
@@ -514,23 +576,6 @@
   </div>
 </section>
 
-<section id="work" class="wrap stitch-marker">
-  <div class="section-head">
-    <span class="eyebrow">Projects</span>
-    <h2>What I build</h2>
-    <p class="lede">Independent projects I've built to solve real, specific problems.</p>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <span class="tag">Finance</span>
-      <h3>Personal Finance Tracker</h3>
-      <p>A 12-tab workbook with a formula-driven dashboard, ARS/USD tracking against the blue dollar rate, and automatic variance flags when conversions drift.</p>
-      <div class="stack"><span>Excel</span><span>Formulas</span><span>Dashboards</span></div>
-    </div>
-  </div>
-</section>
-
 <section id="skills" class="wrap stitch-marker">
   <div class="section-head">
     <span class="eyebrow">Tools</span>
@@ -545,6 +590,23 @@
     <div class="skill-row"><span class="name">AutoCAD</span><span class="skill-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span></span></div>
     <div class="skill-row"><span class="name">SQL</span><span class="skill-dots"><span class="filled"></span><span class="filled"></span><span></span><span></span><span></span></span></div>
     <div class="skill-row"><span class="name">Tableau</span><span class="skill-dots"><span class="filled"></span><span class="filled"></span><span></span><span></span><span></span></span></div>
+  </div>
+</section>
+
+<section id="work" class="wrap stitch-marker">
+  <div class="section-head">
+    <span class="eyebrow">Projects</span>
+    <h2>What I build</h2>
+    <p class="lede">Independent projects I've built to solve real, specific problems.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <span class="tag">Finance</span>
+      <h3>Personal Finance Tracker</h3>
+      <p>A 12-tab workbook with a formula-driven dashboard, ARS/USD tracking against the blue dollar rate, and automatic variance flags when conversions drift.</p>
+      <div class="stack"><span>Excel</span><span>Formulas</span><span>Dashboards</span></div>
+    </div>
   </div>
 </section>
 
