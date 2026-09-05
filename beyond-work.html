@@ -153,6 +153,30 @@
     white-space:nowrap;
   }
 
+  .game-list{
+    list-style:none;
+    margin:16px 0 0;
+    padding:0;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:10px 20px;
+  }
+  .game-list li{
+    padding:10px 0;
+    border-top:1px dashed var(--line);
+  }
+  .game-list li:nth-child(-n+2){ border-top:none; }
+  .game-list .gname{
+    font-weight:500;
+    font-size:0.94rem;
+  }
+  .game-list .gnote{
+    display:block;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+
   .soon-note{
     margin-top:16px;
     padding:14px 18px;
@@ -276,6 +300,17 @@
   <div class="section-head"><span class="icon">🎲</span><h2>Board Games</h2></div>
   <div class="block">
     <p>Always down for a game night, especially anything with a good strategy layer.</p>
+    <ul class="game-list">
+      <li><span class="gname">Catan</span><span class="gnote">The classic — trading, building, and the occasional broken alliance.</span></li>
+      <li><span class="gname">Chess</span><span class="gnote">Slow, quiet, and endlessly replayable.</span></li>
+      <li><span class="gname">Scrabble</span><span class="gnote">Competitive in the best way.</span></li>
+      <li><span class="gname">Burako</span><span class="gnote">Rummy-style tile game, a family staple.</span></li>
+      <li><span class="gname">Rummy / Rummikub</span><span class="gnote">Quick, tactical, always a good filler game.</span></li>
+      <li><span class="gname">Generala (Yahtzee)</span><span class="gnote">Fast dice game, pure competitive chaos.</span></li>
+      <li><span class="gname">Truco</span><span class="gnote">Argentine card game built on bluffing — reading the table matters more than the cards.</span></li>
+      <li><span class="gname">Chinchón</span><span class="gnote">Spanish rummy-style card game, a go-to for a quick round.</span></li>
+      <li><span class="gname">Escoba del quince</span><span class="gnote">Traditional Spanish/Argentine card game — quick math, quicker rounds.</span></li>
+    </ul>
   </div>
 </section>
 
