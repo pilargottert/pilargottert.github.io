@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Work — Pilar Göttert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6ED;
+    --paper-deep:#F1EADA;
+    --ink:#2B2A26;
+    --ink-soft:#6E6456;
+    --ochre:#C68A2E;
+    --ochre-deep:#A66F1E;
+    --teal:#2F6E68;
+    --teal-deep:#204B47;
+    --line: rgba(43,42,38,0.14);
+    --radius: 14px;
+    --maxw: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+  }
+  .wrap{
+    max-width: var(--maxw);
+    margin:0 auto;
+    padding: 0 28px;
+  }
+
+  nav.topnav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(250,246,237,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.topnav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  nav.topnav .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    text-decoration:none;
+  }
+  nav.topnav ul{
+    list-style:none;
+    display:flex;
+    gap:22px;
+    margin:0;
+    padding:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+  }
+  nav.topnav a{ text-decoration:none; }
+  nav.topnav a:hover{ color:var(--ochre-deep); }
+  @media (max-width: 640px){
+    nav.topnav ul{ gap:14px; font-size:0.72rem; }
+  }
+
+  .page-head{
+    padding: 64px 0 20px;
+  }
+  .back-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    text-decoration:none;
+    color:var(--ink-soft);
+  }
+  .back-link:hover{ color:var(--ochre-deep); }
+  h1.page-title{
+    margin-top:18px;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+  p.page-sub{
+    margin-top:14px;
+    max-width:60ch;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+
+  section{
+    padding: 44px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-head{ margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .section-head .icon{ font-size:1.8rem; }
+  .section-head h2{ font-size: clamp(1.4rem, 3vw, 1.8rem); }
+
+  .block{
+    background:var(--paper-deep);
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    padding:26px 26px;
+  }
+  .block p{
+    color:var(--ink-soft);
+    font-size:0.98rem;
+  }
+
+  .result-list{
+    list-style:none;
+    margin:16px 0 0;
+    padding:0;
+  }
+  .result-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:10px 0;
+    border-top:1px dashed var(--line);
+    font-size:0.92rem;
+  }
+  .result-list li:first-child{ border-top:none; }
+  .result-list .placing{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ochre-deep);
+    white-space:nowrap;
+  }
+
+  .soon-note{
+    margin-top:16px;
+    padding:14px 18px;
+    border:1px dashed var(--line);
+    border-radius:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+
+  /* Reading stats */
+  .stat-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap:16px;
+    margin-top:6px;
+  }
+  .stat-grid .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.7rem;
+    color:var(--ochre-deep);
+  }
+  .stat-grid .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+  .genre-chart{ margin-top:26px; }
+  .genre-chart .chart-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .genre-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .genre-row .glabel{
+    width:92px;
+    flex-shrink:0;
+    font-size:0.82rem;
+    color:var(--ink);
+    text-align:right;
+  }
+  .genre-row .gbar-track{
+    flex-grow:1;
+    background:var(--paper);
+    border-radius:4px;
+    height:16px;
+    overflow:hidden;
+  }
+  .genre-row .gbar-fill{
+    height:100%;
+    background:var(--ochre);
+    border-radius:4px;
+  }
+  .genre-row .gval{
+    width:24px;
+    flex-shrink:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    padding:36px 0 60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pilar Göttert</a>
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="beyond-work.html">Beyond Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap page-head">
+  <a class="back-link" href="index.html">← Back to home</a>
+  <h1 class="page-title">Beyond Work</h1>
+  <p class="page-sub">
+    Puzzles, board games, books, and travel — the parts of life that aren't on a resume.
+  </p>
+</header>
+
+<section class="wrap">
+  <div class="section-head"><span class="icon">🧩</span><h2>Puzzles</h2></div>
+  <div class="block">
+    <p>I compete in jigsaw puzzle tournaments, pairs section, junior category.</p>
+    <ul class="result-list">
+      <li><span>Tournament 1</span><span class="placing">2nd place</span></li>
+      <li><span>Tournament 2</span><span class="placing">2nd place</span></li>
+      <li><span>Tournament 3</span><span class="placing">🥇 1st place</span></li>
+    </ul>
+    <div class="soon-note">Medal and diploma photos coming soon.</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head"><span class="icon">🎲</span><h2>Board Games</h2></div>
+  <div class="block">
+    <p>Always down for a game night, especially anything with a good strategy layer.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head"><span class="icon">📚</span><h2>Books</h2></div>
+  <div class="block">
+    <h3 style="font-size:1.1rem;">2025 reading, by the numbers</h3>
+    <div class="stat-grid">
+      <div><div class="num">61</div><div class="lbl">Books read</div></div>
+      <div><div class="num">24,966</div><div class="lbl">Pages read</div></div>
+      <div><div class="num">3.17</div><div class="lbl">Avg rating / 5</div></div>
+      <div><div class="num">68</div><div class="lbl">Pages / day</div></div>
+    </div>
+    <div class="genre-chart">
+      <div class="chart-title">By genre</div>
+      <div class="genre-row"><span class="glabel">Mystery</span><div class="gbar-track"><div class="gbar-fill" style="width:100%;"></div></div><span class="gval">22</span></div>
+      <div class="genre-row"><span class="glabel">Fantasy</span><div class="gbar-track"><div class="gbar-fill" style="width:59%;"></div></div><span class="gval">13</span></div>
+      <div class="genre-row"><span class="glabel">Romantasy</span><div class="gbar-track"><div class="gbar-fill" style="width:59%;"></div></div><span class="gval">13</span></div>
+      <div class="genre-row"><span class="glabel">Romance</span><div class="gbar-track"><div class="gbar-fill" style="width:32%;"></div></div><span class="gval">7</span></div>
+      <div class="genre-row"><span class="glabel">Historical</span><div class="gbar-track"><div class="gbar-fill" style="width:14%;"></div></div><span class="gval">3</span></div>
+      <div class="genre-row"><span class="glabel">Nonfiction</span><div class="gbar-track"><div class="gbar-fill" style="width:9%;"></div></div><span class="gval">2</span></div>
+      <div class="genre-row"><span class="glabel">Contemporary</span><div class="gbar-track"><div class="gbar-fill" style="width:5%;"></div></div><span class="gval">1</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head"><span class="icon">✈️</span><h2>Travel</h2></div>
+  <div class="block">
+    <p>Logging every flight I've taken on Flightradar24 — building toward a full map of everywhere I've been.</p>
+    <div class="soon-note">Flight map and stats coming soon.</div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Pilar Göttert
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
