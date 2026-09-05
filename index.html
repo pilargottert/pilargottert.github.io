@@ -445,6 +445,96 @@
     border-radius:100px;
   }
 
+  /* ---- READING STATS ---- */
+  .reading-stats{
+    margin-top:24px;
+    background:var(--paper-deep);
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    padding:28px 26px;
+  }
+  .reading-stats h4{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-weight:600;
+    margin:0;
+  }
+  .reading-stats .stat-year{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--teal-deep);
+    background:rgba(47,110,104,0.1);
+    padding:2px 9px;
+    border-radius:100px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .stat-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap:16px;
+    margin-top:18px;
+  }
+  .stat-grid .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.6rem;
+    color:var(--ochre-deep);
+  }
+  .stat-grid .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+  .genre-chart{
+    margin-top:26px;
+  }
+  .genre-chart .chart-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .genre-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .genre-row .glabel{
+    width:92px;
+    flex-shrink:0;
+    font-size:0.82rem;
+    color:var(--ink);
+    text-align:right;
+  }
+  .genre-row .gbar-track{
+    flex-grow:1;
+    background:var(--paper);
+    border-radius:4px;
+    height:16px;
+    overflow:hidden;
+  }
+  .genre-row .gbar-fill{
+    height:100%;
+    background:var(--ochre);
+    border-radius:4px;
+  }
+  .genre-row .gval{
+    width:24px;
+    flex-shrink:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---- OFF-CLOCK / HOBBIES ---- */
+
   /* ---- CONTACT ---- */
   .contact-box{
     margin-top:30px;
@@ -593,6 +683,18 @@
   </div>
 </section>
 
+<section id="languages" class="wrap stitch-marker">
+  <div class="section-head">
+    <span class="eyebrow">Languages</span>
+    <h2>Languages I speak</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-row"><span class="name">Spanish (Native)</span><span class="skill-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span></span></div>
+    <div class="skill-row"><span class="name">English (Fluent)</span><span class="skill-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span></span></div>
+    <div class="skill-row"><span class="name">German (B1)</span><span class="skill-dots"><span class="filled"></span><span class="filled"></span><span></span><span></span><span></span></span></div>
+  </div>
+</section>
+
 <section id="work" class="wrap stitch-marker">
   <div class="section-head">
     <span class="eyebrow">Projects</span>
@@ -629,14 +731,33 @@
     <div class="hobby">
       <span class="icon">📚</span>
       <h4>Books</h4>
-      <p>I track everything I read, with charts on genre and pace over time.</p>
-      <span class="soon">Charts coming soon</span>
+      <p>I track everything I read — genre, pace, ratings — and let the numbers tell the story.</p>
     </div>
     <div class="hobby">
       <span class="icon">✈️</span>
       <h4>Travel</h4>
       <p>Logging every flight I've taken on Flightradar24 — building toward a full map of everywhere I've been.</p>
       <span class="soon">Map coming soon</span>
+    </div>
+  </div>
+
+  <div class="reading-stats">
+    <h4>2025 reading, by the numbers <span class="stat-year">61 books</span></h4>
+    <div class="stat-grid">
+      <div><div class="num">61</div><div class="lbl">Books read</div></div>
+      <div><div class="num">24,966</div><div class="lbl">Pages read</div></div>
+      <div><div class="num">3.17</div><div class="lbl">Avg rating / 5</div></div>
+      <div><div class="num">68</div><div class="lbl">Pages / day</div></div>
+    </div>
+    <div class="genre-chart">
+      <div class="chart-title">By genre</div>
+      <div class="genre-row"><span class="glabel">Mystery</span><div class="gbar-track"><div class="gbar-fill" style="width:100%;"></div></div><span class="gval">22</span></div>
+      <div class="genre-row"><span class="glabel">Fantasy</span><div class="gbar-track"><div class="gbar-fill" style="width:59%;"></div></div><span class="gval">13</span></div>
+      <div class="genre-row"><span class="glabel">Romantasy</span><div class="gbar-track"><div class="gbar-fill" style="width:59%;"></div></div><span class="gval">13</span></div>
+      <div class="genre-row"><span class="glabel">Romance</span><div class="gbar-track"><div class="gbar-fill" style="width:32%;"></div></div><span class="gval">7</span></div>
+      <div class="genre-row"><span class="glabel">Historical</span><div class="gbar-track"><div class="gbar-fill" style="width:14%;"></div></div><span class="gval">3</span></div>
+      <div class="genre-row"><span class="glabel">Nonfiction</span><div class="gbar-track"><div class="gbar-fill" style="width:9%;"></div></div><span class="gval">2</span></div>
+      <div class="genre-row"><span class="glabel">Contemporary</span><div class="gbar-track"><div class="gbar-fill" style="width:5%;"></div></div><span class="gval">1</span></div>
     </div>
   </div>
 </section>
