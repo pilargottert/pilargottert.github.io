@@ -132,26 +132,87 @@
     font-size:0.98rem;
   }
 
-  .result-list{
-    list-style:none;
-    margin:16px 0 0;
-    padding:0;
+  .tournament-list{
+    margin-top:20px;
+    display:grid;
+    gap:22px;
   }
-  .result-list li{
+  .tournament{
+    background:var(--paper-deep);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 18px 20px;
+  }
+  .tournament-head{
     display:flex;
-    justify-content:space-between;
-    gap:14px;
-    padding:10px 0;
-    border-top:1px dashed var(--line);
-    font-size:0.92rem;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:8px 14px;
+    margin-bottom:10px;
   }
-  .result-list li:first-child{ border-top:none; }
-  .result-list .placing{
+  .t-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .t-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    color:var(--ink-soft);
+  }
+  .t-note{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin:-2px 0 12px;
+    font-style:italic;
+  }
+
+  .carousel{
+    position:relative;
+  }
+  .carousel-track{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    border-radius:10px;
+    border:1px dashed var(--line);
+  }
+  .carousel-track::-webkit-scrollbar{ display:none; }
+  .carousel-slide{
+    flex:0 0 100%;
+    scroll-snap-align:start;
+    aspect-ratio:4/3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--paper);
     font-family:'IBM Plex Mono', monospace;
     font-size:0.78rem;
-    color:var(--ochre-deep);
-    white-space:nowrap;
+    color:var(--ink-soft);
+    text-align:center;
+    padding:20px;
   }
+  .car-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:1.1rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .car-btn:hover{ background:var(--ochre); color:var(--paper); border-color:var(--ochre); }
+  .car-btn.prev{ left:10px; }
+  .car-btn.next{ right:10px; }
 
   .game-list{
     list-style:none;
@@ -305,31 +366,82 @@
 <section class="wrap">
   <div class="section-head"><span class="icon">🧩</span><h2>Puzzles</h2></div>
   <div class="block">
-    <p>I compete in jigsaw puzzle tournaments, pairs section, junior category.</p>
-    <ul class="result-list">
-      <li><span>Tournament 1</span><span class="placing">2nd place</span></li>
-      <li><span>Tournament 2</span><span class="placing">2nd place</span></li>
-      <li><span>Tournament 3</span><span class="placing">🥇 1st place</span></li>
-    </ul>
-    <div class="soon-note">Medal and diploma photos coming soon.</div>
-  </div>
-</section>
+    <p>I compete in jigsaw puzzle tournaments with my mom, pairs section. Each tournament gives everyone the same puzzle to build against the clock — the design is a surprise, and it's yours to keep afterward. A podium finish also comes with a diploma (with your time on it), a medal, and a prize puzzle to take home: 500 pieces for 2nd or 3rd, 1000 for 1st.</p>
 
-<section class="wrap">
-  <div class="section-head"><span class="icon">🎲</span><h2>Board Games</h2></div>
-  <div class="block">
-    <p>Always down for a game night, especially anything with a good strategy layer.</p>
-    <ul class="game-list">
-      <li><img class="gicon" src="assets/icons/catan.png" alt="Catan"><div class="gtext"><span class="gname">Catan</span><span class="gnote">The classic — trading, building, and the occasional broken alliance.</span></div></li>
-      <li><img class="gicon" src="assets/icons/chess.png" alt="Chess"><div class="gtext"><span class="gname">Chess</span><span class="gnote">Slow, quiet, and endlessly replayable.</span></div></li>
-      <li><img class="gicon" src="assets/icons/scrabble.png" alt="Scrabble"><div class="gtext"><span class="gname">Scrabble</span><span class="gnote">Competitive in the best way.</span></div></li>
-      <li><img class="gicon" src="assets/icons/burako.png" alt="Burako"><div class="gtext"><span class="gname">Burako</span><span class="gnote">Rummy-style tile game, a family staple.</span></div></li>
-      <li><img class="gicon" src="assets/icons/rummy.png" alt="Rummy"><div class="gtext"><span class="gname">Rummy / Rummikub</span><span class="gnote">Quick, tactical, always a good filler game.</span></div></li>
-      <li><img class="gicon" src="assets/icons/generala.png" alt="Generala"><div class="gtext"><span class="gname">Generala (Yahtzee)</span><span class="gnote">Fast dice game, pure competitive chaos.</span></div></li>
-      <li><img class="gicon" src="assets/icons/truco.png" alt="Truco"><div class="gtext"><span class="gname">Truco</span><span class="gnote">Argentine card game built on bluffing — reading the table matters more than the cards.</span></div></li>
-      <li><img class="gicon" src="assets/icons/chinchon.png" alt="Chinchón"><div class="gtext"><span class="gname">Chinchón</span><span class="gnote">Spanish rummy-style card game, a go-to for a quick round.</span></div></li>
-      <li><img class="gicon" src="assets/icons/escoba.png" alt="Escoba de 15"><div class="gtext"><span class="gname">Escoba del quince</span><span class="gnote">Traditional Spanish/Argentine card game — quick math, quicker rounds.</span></div></li>
-    </ul>
+    <div class="tournament-list">
+
+      <div class="tournament">
+        <div class="tournament-head">
+          <span class="t-name">Tournament 1</span>
+          <span class="t-meta">June 2026 · Junior category · 🥈 2nd place · 500-piece prize</span>
+        </div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t1">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t1" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t1" aria-label="Next photo">›</button>
+        </div>
+      </div>
+
+      <div class="tournament">
+        <div class="tournament-head">
+          <span class="t-name">Tournament 2</span>
+          <span class="t-meta">July 2026 · Junior category · 🥈 2nd place · 500-piece prize</span>
+        </div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t2">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t2" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t2" aria-label="Next photo">›</button>
+        </div>
+      </div>
+
+      <div class="tournament">
+        <div class="tournament-head">
+          <span class="t-name">Tournament 3</span>
+          <span class="t-meta">August 2026 · Junior category · 🥇 1st place · 1000-piece prize</span>
+        </div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t3">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t3" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t3" aria-label="Next photo">›</button>
+        </div>
+      </div>
+
+      <div class="tournament">
+        <div class="tournament-head">
+          <span class="t-name">Tournament 4</span>
+          <span class="t-meta">September 2026 · Senior category · 🥈 2nd place · 500-piece prize</span>
+        </div>
+        <p class="t-note">Promoted to Senior category after winning Tournament 3.</p>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t4">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t4" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t4" aria-label="Next photo">›</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="soon-note">Photos coming soon — each carousel will hold the puzzle design, the completed puzzle, the medal &amp; diploma, and a photo with the finished puzzle.</div>
   </div>
 </section>
 
@@ -353,6 +465,24 @@
       <div class="genre-row"><span class="glabel">Nonfiction</span><div class="gbar-track"><div class="gbar-fill" style="width:9%;"></div></div><span class="gval">2</span></div>
       <div class="genre-row"><span class="glabel">Contemporary</span><div class="gbar-track"><div class="gbar-fill" style="width:5%;"></div></div><span class="gval">1</span></div>
     </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head"><span class="icon">🎲</span><h2>Board Games</h2></div>
+  <div class="block">
+    <p>Always down for a game night, especially anything with a good strategy layer.</p>
+    <ul class="game-list">
+      <li><img class="gicon" src="assets/icons/catan.png" alt="Catan"><div class="gtext"><span class="gname">Catan</span><span class="gnote">The classic — trading, building, and the occasional broken alliance.</span></div></li>
+      <li><img class="gicon" src="assets/icons/chess.png" alt="Chess"><div class="gtext"><span class="gname">Chess</span><span class="gnote">Slow, quiet, and endlessly replayable.</span></div></li>
+      <li><img class="gicon" src="assets/icons/scrabble.png" alt="Scrabble"><div class="gtext"><span class="gname">Scrabble</span><span class="gnote">Competitive in the best way.</span></div></li>
+      <li><img class="gicon" src="assets/icons/burako.png" alt="Burako"><div class="gtext"><span class="gname">Burako</span><span class="gnote">Rummy-style tile game, a family staple.</span></div></li>
+      <li><img class="gicon" src="assets/icons/rummy.png" alt="Rummy"><div class="gtext"><span class="gname">Rummy / Rummikub</span><span class="gnote">Quick, tactical, always a good filler game.</span></div></li>
+      <li><img class="gicon" src="assets/icons/generala.png" alt="Generala"><div class="gtext"><span class="gname">Generala (Yahtzee)</span><span class="gnote">Fast dice game, pure competitive chaos.</span></div></li>
+      <li><img class="gicon" src="assets/icons/truco.png" alt="Truco"><div class="gtext"><span class="gname">Truco</span><span class="gnote">Argentine card game built on bluffing — reading the table matters more than the cards.</span></div></li>
+      <li><img class="gicon" src="assets/icons/chinchon.png" alt="Chinchón"><div class="gtext"><span class="gname">Chinchón</span><span class="gnote">Spanish rummy-style card game, a go-to for a quick round.</span></div></li>
+      <li><img class="gicon" src="assets/icons/escoba.png" alt="Escoba de 15"><div class="gtext"><span class="gname">Escoba del quince</span><span class="gnote">Traditional Spanish/Argentine card game — quick math, quicker rounds.</span></div></li>
+    </ul>
   </div>
 </section>
 
@@ -389,6 +519,15 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.car-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = document.getElementById(btn.dataset.target);
+      const slideWidth = track.clientWidth;
+      track.scrollBy({ left: btn.classList.contains('next') ? slideWidth : -slideWidth, behavior: 'smooth' });
+    });
+  });
+
 </script>
 
 </body>
