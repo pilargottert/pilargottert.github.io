@@ -135,7 +135,11 @@
   .tournament-list{
     margin-top:20px;
     display:grid;
+    grid-template-columns: repeat(2, 1fr);
     gap:22px;
+  }
+  @media (max-width: 640px){
+    .tournament-list{ grid-template-columns: 1fr; }
   }
   .tournament{
     background:var(--paper-deep);
@@ -167,26 +171,52 @@
     font-style:italic;
   }
 
-  .photo-grid{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:8px;
-    max-width:360px;
+  .carousel{
+    position:relative;
   }
-  .photo-slot{
+  .carousel-track{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    border-radius:10px;
+    border:1px dashed var(--line);
+  }
+  .carousel-track::-webkit-scrollbar{ display:none; }
+  .carousel-slide{
+    flex:0 0 100%;
+    scroll-snap-align:start;
     aspect-ratio:4/3;
     display:flex;
     align-items:center;
     justify-content:center;
     background:var(--paper);
-    border:1px dashed var(--line);
-    border-radius:8px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.7rem;
+    font-size:0.78rem;
     color:var(--ink-soft);
     text-align:center;
-    padding:10px;
+    padding:20px;
   }
+  .car-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:1.1rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .car-btn:hover{ background:var(--ochre); color:var(--paper); border-color:var(--ochre); }
+  .car-btn.prev{ left:10px; }
+  .car-btn.next{ right:10px; }
 
   .game-list{
     list-style:none;
@@ -349,11 +379,15 @@
           <span class="t-name">Tournament 1</span>
           <span class="t-meta">June 2026 · Junior category · 🥈 2nd place · 500-piece prize</span>
         </div>
-        <div class="photo-grid">
-          <div class="photo-slot"><span>Puzzle design</span></div>
-          <div class="photo-slot"><span>Completed puzzle</span></div>
-          <div class="photo-slot"><span>Medal &amp; diploma</span></div>
-          <div class="photo-slot"><span>With the finished puzzle</span></div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t1">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t1" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t1" aria-label="Next photo">›</button>
         </div>
       </div>
 
@@ -362,11 +396,15 @@
           <span class="t-name">Tournament 2</span>
           <span class="t-meta">July 2026 · Junior category · 🥈 2nd place · 500-piece prize</span>
         </div>
-        <div class="photo-grid">
-          <div class="photo-slot"><span>Puzzle design</span></div>
-          <div class="photo-slot"><span>Completed puzzle</span></div>
-          <div class="photo-slot"><span>Medal &amp; diploma</span></div>
-          <div class="photo-slot"><span>With the finished puzzle</span></div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t2">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t2" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t2" aria-label="Next photo">›</button>
         </div>
       </div>
 
@@ -375,11 +413,15 @@
           <span class="t-name">Tournament 3</span>
           <span class="t-meta">August 2026 · Junior category · 🥇 1st place · 1000-piece prize</span>
         </div>
-        <div class="photo-grid">
-          <div class="photo-slot"><span>Puzzle design</span></div>
-          <div class="photo-slot"><span>Completed puzzle</span></div>
-          <div class="photo-slot"><span>Medal &amp; diploma</span></div>
-          <div class="photo-slot"><span>With the finished puzzle</span></div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t3">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t3" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t3" aria-label="Next photo">›</button>
         </div>
       </div>
 
@@ -389,17 +431,21 @@
           <span class="t-meta">September 2026 · Senior category · 🥈 2nd place · 500-piece prize</span>
         </div>
         <p class="t-note">Promoted to Senior category after winning Tournament 3.</p>
-        <div class="photo-grid">
-          <div class="photo-slot"><span>Puzzle design</span></div>
-          <div class="photo-slot"><span>Completed puzzle</span></div>
-          <div class="photo-slot"><span>Medal &amp; diploma</span></div>
-          <div class="photo-slot"><span>With the finished puzzle</span></div>
+        <div class="carousel">
+          <div class="carousel-track" id="car-t4">
+            <div class="carousel-slide"><span>Puzzle design</span></div>
+            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><span>Medal &amp; diploma</span></div>
+            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+          </div>
+          <button class="car-btn prev" data-target="car-t4" aria-label="Previous photo">‹</button>
+          <button class="car-btn next" data-target="car-t4" aria-label="Next photo">›</button>
         </div>
       </div>
 
     </div>
 
-    <div class="soon-note">Photos coming soon — each grid will hold the puzzle design, the completed puzzle, the medal &amp; diploma, and a photo with the finished puzzle.</div>
+    <div class="soon-note">Photos coming soon — each carousel will hold the puzzle design, the completed puzzle, the medal &amp; diploma, and a photo with the finished puzzle.</div>
   </div>
 </section>
 
@@ -477,6 +523,14 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.car-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = document.getElementById(btn.dataset.target);
+      const slideWidth = track.clientWidth;
+      track.scrollBy({ left: btn.classList.contains('next') ? slideWidth : -slideWidth, behavior: 'smooth' });
+    });
+  });
 </script>
 
 </body>
