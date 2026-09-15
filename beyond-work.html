@@ -196,6 +196,69 @@
     .game-list{ grid-template-columns: 1fr; }
   }
 
+  /* Travel hub diagram */
+  .hub-map{
+    margin-top:20px;
+    background:var(--paper-deep);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .hub-map svg{
+    width:100%;
+    height:auto;
+    max-width:640px;
+    display:block;
+    margin:0 auto;
+  }
+  .hub-map .spoke{
+    stroke: var(--ochre);
+    stroke-opacity:0.45;
+    stroke-width:2;
+    stroke-dasharray:5 6;
+  }
+  .hub-map .hub circle{
+    fill: var(--teal);
+  }
+  .hub-map .hub .hub-code{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+    fill:var(--paper);
+    text-anchor:middle;
+  }
+  .hub-map .hub .hub-city{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    fill:var(--paper);
+    text-anchor:middle;
+  }
+  .hub-map .node circle{
+    fill: var(--paper);
+    stroke: var(--ochre-deep);
+    stroke-width:2;
+  }
+  .hub-map .node .node-code{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:14px;
+    fill:var(--ink);
+    text-anchor:middle;
+  }
+  .hub-map .node .node-count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    fill:var(--ink-soft);
+    text-anchor:middle;
+  }
+  .hub-caption{
+    margin-top:10px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+  }
+
   .soon-note{
     margin-top:16px;
     padding:14px 18px;
@@ -359,8 +422,80 @@
 <section class="wrap">
   <div class="section-head"><span class="icon">✈️</span><h2>Travel</h2></div>
   <div class="block">
-    <p>Logging every flight I've taken on Flightradar24 — building toward a full map of everywhere I've been.</p>
-    <div class="soon-note">Flight map and stats coming soon.</div>
+    <p>Logging every flight I've taken on Flightradar24. Stats below are current as of my last update — I'm still filling in older flights, so these numbers will keep growing.</p>
+
+    <div class="stat-grid">
+      <div><div class="num">19</div><div class="lbl">Flights logged</div></div>
+      <div><div class="num">62,151</div><div class="lbl">Miles flown</div></div>
+      <div><div class="num">7</div><div class="lbl">Countries</div></div>
+      <div><div class="num">12.1</div><div class="lbl">Tons CO₂</div></div>
+    </div>
+
+    <div class="genre-chart">
+      <div class="chart-title">By country</div>
+      <div class="genre-row"><span class="glabel">US</span><div class="gbar-track"><div class="gbar-fill" style="width:100%;"></div></div><span class="gval">12</span></div>
+      <div class="genre-row"><span class="glabel">Argentina</span><div class="gbar-track"><div class="gbar-fill" style="width:83%;"></div></div><span class="gval">10</span></div>
+      <div class="genre-row"><span class="glabel">Spain</span><div class="gbar-track"><div class="gbar-fill" style="width:33%;"></div></div><span class="gval">4</span></div>
+      <div class="genre-row"><span class="glabel">Italy</span><div class="gbar-track"><div class="gbar-fill" style="width:17%;"></div></div><span class="gval">2</span></div>
+      <div class="genre-row"><span class="glabel">Germany</span><div class="gbar-track"><div class="gbar-fill" style="width:17%;"></div></div><span class="gval">2</span></div>
+      <div class="genre-row"><span class="glabel">Canada</span><div class="gbar-track"><div class="gbar-fill" style="width:17%;"></div></div><span class="gval">2</span></div>
+      <div class="genre-row"><span class="glabel">UK</span><div class="gbar-track"><div class="gbar-fill" style="width:17%;"></div></div><span class="gval">2</span></div>
+    </div>
+
+    <h3 style="font-size:1.1rem; margin-top:36px;">Most-visited airports, from home</h3>
+    <div class="hub-map">
+      <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of most-visited airports radiating from Buenos Aires">
+        <!-- spokes (drawn first, under nodes) -->
+        <line x1="320" y1="210" x2="320" y2="60"  class="spoke"/>
+        <line x1="320" y1="210" x2="449" y2="135" class="spoke"/>
+        <line x1="320" y1="210" x2="449" y2="285" class="spoke"/>
+        <line x1="320" y1="210" x2="320" y2="360" class="spoke"/>
+        <line x1="320" y1="210" x2="190" y2="285" class="spoke"/>
+        <line x1="320" y1="210" x2="190" y2="135" class="spoke"/>
+
+        <!-- satellite nodes -->
+        <g class="node">
+          <circle cx="320" cy="60" r="30"/>
+          <text x="320" y="55" class="node-code">MIA</text>
+          <text x="320" y="72" class="node-count">7</text>
+        </g>
+        <g class="node">
+          <circle cx="449" cy="135" r="24"/>
+          <text x="449" y="130" class="node-code">MAD</text>
+          <text x="449" y="146" class="node-count">4</text>
+        </g>
+        <g class="node">
+          <circle cx="449" cy="285" r="18"/>
+          <text x="449" y="281" class="node-code">BOS</text>
+          <text x="449" y="296" class="node-count">2</text>
+        </g>
+        <g class="node">
+          <circle cx="320" cy="360" r="18"/>
+          <text x="320" y="356" class="node-code">DFW</text>
+          <text x="320" y="371" class="node-count">2</text>
+        </g>
+        <g class="node">
+          <circle cx="190" cy="285" r="18"/>
+          <text x="190" y="281" class="node-code">LHR</text>
+          <text x="190" y="296" class="node-count">2</text>
+        </g>
+        <g class="node">
+          <circle cx="190" cy="135" r="18"/>
+          <text x="190" y="131" class="node-code">ORD</text>
+          <text x="190" y="146" class="node-count">2</text>
+        </g>
+
+        <!-- hub, drawn last so it sits on top -->
+        <g class="hub">
+          <circle cx="320" cy="210" r="44"/>
+          <text x="320" y="204" class="hub-code">EZE</text>
+          <text x="320" y="222" class="hub-city">Buenos Aires</text>
+        </g>
+      </svg>
+      <p class="hub-caption">Node size reflects number of visits. Based on top recorded airports — full flight log in progress.</p>
+    </div>
+
+    <div class="soon-note">Full route map and remaining flight history still being added.</div>
   </div>
 </section>
 
