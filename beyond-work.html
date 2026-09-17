@@ -181,12 +181,13 @@
     scrollbar-width:none;
     border-radius:10px;
     border:1px dashed var(--line);
+    height:320px;
   }
   .carousel-track::-webkit-scrollbar{ display:none; }
   .carousel-slide{
     flex:0 0 100%;
     scroll-snap-align:start;
-    aspect-ratio:4/3;
+    height:100%;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -197,6 +198,17 @@
     text-align:center;
     padding:20px;
     overflow:hidden;
+  }
+  /* Once a photo loads, JS adds .landscape or .portrait so every
+     photo of that orientation gets the same fixed frame size. */
+  .carousel-slide.landscape{
+    flex:0 0 auto;
+    width:426px;
+    max-width:100%;
+  }
+  .carousel-slide.portrait{
+    flex:0 0 auto;
+    width:240px;
   }
   .carousel-slide img{
     width:100%;
@@ -390,10 +402,10 @@
         </div>
         <div class="carousel">
           <div class="carousel-track" id="car-t1">
-            <div class="carousel-slide"><span>Puzzle design</span></div>
-            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t1-design.jpg.png" alt="Tournament 1 puzzle design"></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t1-completed.jpg" alt="Tournament 1 completed puzzle"></div>
             <div class="carousel-slide"><img src="assets/puzzles/t1-medal-diploma.jpg" alt="Tournament 1 medal and diploma"></div>
-            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t1-with-puzzle.jpg" alt="Tournament 1 with the finished puzzle"></div>
           </div>
           <button class="car-btn prev" data-target="car-t1" aria-label="Previous photo">‹</button>
           <button class="car-btn next" data-target="car-t1" aria-label="Next photo">›</button>
@@ -408,9 +420,9 @@
         <div class="carousel">
           <div class="carousel-track" id="car-t2">
             <div class="carousel-slide"><span>Puzzle design</span></div>
-            <div class="carousel-slide"><span>Completed puzzle</span></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t2-completed.jpg" alt="Tournament 2 completed puzzle"></div>
             <div class="carousel-slide"><img src="assets/puzzles/t2-medal-diploma.jpg" alt="Tournament 2 medal and diploma"></div>
-            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t2-with-puzzle.jpg" alt="Tournament 2 with the finished puzzle"></div>
           </div>
           <button class="car-btn prev" data-target="car-t2" aria-label="Previous photo">‹</button>
           <button class="car-btn next" data-target="car-t2" aria-label="Next photo">›</button>
@@ -427,7 +439,7 @@
             <div class="carousel-slide"><span>Puzzle design</span></div>
             <div class="carousel-slide"><span>Completed puzzle</span></div>
             <div class="carousel-slide"><img src="assets/puzzles/t3-medal-diploma.jpg" alt="Tournament 3 medal and diploma"></div>
-            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t3-with-puzzle.jpg" alt="Tournament 3 with the finished puzzle"></div>
           </div>
           <button class="car-btn prev" data-target="car-t3" aria-label="Previous photo">‹</button>
           <button class="car-btn next" data-target="car-t3" aria-label="Next photo">›</button>
@@ -445,7 +457,7 @@
             <div class="carousel-slide"><span>Puzzle design</span></div>
             <div class="carousel-slide"><span>Completed puzzle</span></div>
             <div class="carousel-slide"><img src="assets/puzzles/t4-medal-diploma.jpg" alt="Tournament 4 medal and diploma"></div>
-            <div class="carousel-slide"><span>With the finished puzzle</span></div>
+            <div class="carousel-slide"><img src="assets/puzzles/t4-with-puzzle.jpg" alt="Tournament 4 with the finished puzzle"></div>
           </div>
           <button class="car-btn prev" data-target="car-t4" aria-label="Previous photo">‹</button>
           <button class="car-btn next" data-target="car-t4" aria-label="Next photo">›</button>
@@ -533,11 +545,31 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Detect each photo's real orientation and size its slide frame
+  // consistently with every other photo of that same orientation.
+  document.querySelectorAll('.carousel-slide img').forEach(img => {
+    const applyOrientation = () => {
+      const slide = img.closest('.carousel-slide');
+      slide.classList.add(img.naturalWidth >= img.naturalHeight ? 'landscape' : 'portrait');
+    };
+    if (img.complete) applyOrientation();
+    else img.addEventListener('load', applyOrientation);
+  });
+
+  // Scroll by whichever slide is next/previous, since slides can
+  // now be different widths depending on photo orientation.
   document.querySelectorAll('.car-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const track = document.getElementById(btn.dataset.target);
-      const slideWidth = track.clientWidth;
-      track.scrollBy({ left: btn.classList.contains('next') ? slideWidth : -slideWidth, behavior: 'smooth' });
+      const slides = Array.from(track.children);
+      const trackRect = track.getBoundingClientRect();
+      const currentIndex = slides.findIndex(s => {
+        const r = s.getBoundingClientRect();
+        return r.left >= trackRect.left - 5 && r.left < trackRect.right - 5;
+      });
+      const dir = btn.classList.contains('next') ? 1 : -1;
+      const targetIndex = Math.max(0, Math.min(slides.length - 1, (currentIndex === -1 ? 0 : currentIndex) + dir));
+      slides[targetIndex].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
     });
   });
 </script>
