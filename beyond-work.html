@@ -146,6 +146,7 @@
     border:1px solid var(--line);
     border-radius:var(--radius);
     padding:18px 18px 20px;
+    min-width:0;
   }
   .tournament-head{
     display:flex;
@@ -199,21 +200,10 @@
     padding:20px;
     overflow:hidden;
   }
-  /* Once a photo loads, JS adds .landscape or .portrait so every
-     photo of that orientation gets the same fixed frame size. */
-  .carousel-slide.landscape{
-    flex:0 0 auto;
-    width:426px;
-    max-width:100%;
-  }
-  .carousel-slide.portrait{
-    flex:0 0 auto;
-    width:240px;
-  }
   .carousel-slide img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
   }
   .carousel-slide:has(img){
     padding:0;
@@ -545,31 +535,11 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Detect each photo's real orientation and size its slide frame
-  // consistently with every other photo of that same orientation.
-  document.querySelectorAll('.carousel-slide img').forEach(img => {
-    const applyOrientation = () => {
-      const slide = img.closest('.carousel-slide');
-      slide.classList.add(img.naturalWidth >= img.naturalHeight ? 'landscape' : 'portrait');
-    };
-    if (img.complete) applyOrientation();
-    else img.addEventListener('load', applyOrientation);
-  });
-
-  // Scroll by whichever slide is next/previous, since slides can
-  // now be different widths depending on photo orientation.
   document.querySelectorAll('.car-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const track = document.getElementById(btn.dataset.target);
-      const slides = Array.from(track.children);
-      const trackRect = track.getBoundingClientRect();
-      const currentIndex = slides.findIndex(s => {
-        const r = s.getBoundingClientRect();
-        return r.left >= trackRect.left - 5 && r.left < trackRect.right - 5;
-      });
-      const dir = btn.classList.contains('next') ? 1 : -1;
-      const targetIndex = Math.max(0, Math.min(slides.length - 1, (currentIndex === -1 ? 0 : currentIndex) + dir));
-      slides[targetIndex].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      const slideWidth = track.clientWidth;
+      track.scrollBy({ left: btn.classList.contains('next') ? slideWidth : -slideWidth, behavior: 'smooth' });
     });
   });
 </script>
