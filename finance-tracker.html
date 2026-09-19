@@ -49,9 +49,9 @@
 <section class="wrap case">
   <div class="case-head">
     <span class="case-num">1</span>
-    <h2>The problem</h2>
+    <h2 data-en="The problem" data-es="El problema">The problem</h2>
   </div>
-  <p>
+  <p data-en="My money lives in two countries and two currencies — ARS accounts in Argentina, USD accounts in the US — and the exchange rate that actually matters isn't the official one, it's the &quot;blue dollar&quot; parallel rate, which can move meaningfully week to week. Budgeting apps built for a single-currency household don't handle that well: they either ignore the gap between official and blue-dollar rates, or they make you convert everything by hand before you can see a real total." data-es="Mi dinero vive en dos países y dos monedas — cuentas en ARS en Argentina, cuentas en USD en Estados Unidos — y el tipo de cambio que realmente importa no es el oficial, es el dólar «blue» paralelo, que puede moverse de forma significativa semana a semana. Las apps de presupuesto pensadas para un hogar de una sola moneda no manejan bien esto: o ignoran la brecha entre el dólar oficial y el blue, o te obligan a convertir todo a mano antes de poder ver un total real.">
     My money lives in two countries and two currencies — ARS accounts in Argentina, USD accounts
     in the US — and the exchange rate that actually matters isn't the official one, it's the
     "blue dollar" parallel rate, which can move meaningfully week to week. Budgeting apps built
@@ -59,7 +59,7 @@
     official and blue-dollar rates, or they make you convert everything by hand before you can
     see a real total.
   </p>
-  <p>
+  <p data-en="On top of that, every time I actually move money between currencies, there's a real risk of typing the wrong amount or grabbing a stale rate — and a small transcription error is easy to miss until it's thrown off a month of numbers." data-es="Además, cada vez que efectivamente muevo dinero entre monedas, hay un riesgo real de escribir mal el monto o tomar un tipo de cambio desactualizado — y un pequeño error de transcripción es fácil de pasar por alto hasta que ya distorsionó los números de todo un mes.">
     On top of that, every time I actually move money between currencies, there's a real risk of
     typing the wrong amount or grabbing a stale rate — and a small transcription error is easy to
     miss until it's thrown off a month of numbers.
@@ -69,9 +69,9 @@
 <section class="wrap case">
   <div class="case-head">
     <span class="case-num">2</span>
-    <h2>The approach</h2>
+    <h2 data-en="The approach" data-es="El enfoque">The approach</h2>
   </div>
-  <p>
+  <p data-en="I built the tracker as a single workbook where the Transactions tab is the only place raw data goes in, and everything else — budgets, the dashboard, goal progress — recalculates itself from there using SUMIFS and INDEX/MATCH. No pivot tables to refresh, no manual totals to update." data-es="Construí el rastreador como un único libro de trabajo donde la pestaña de Transacciones es el único lugar donde se ingresan datos crudos, y todo lo demás — presupuestos, el panel, el progreso de metas — se recalcula solo a partir de ahí usando SUMAR.SI.CONJUNTO e INDICE/COINCIDIR. Sin tablas dinámicas que actualizar, sin totales manuales que corregir.">
     I built the tracker as a single workbook where the Transactions tab is the only place raw
     data goes in, and everything else — budgets, the dashboard, goal progress — recalculates
     itself from there using SUMIFS and INDEX/MATCH. No pivot tables to refresh, no manual totals
@@ -80,79 +80,79 @@
 
   <div class="feature-grid">
     <div class="feature">
-      <h4>Live dashboard</h4>
-      <p>Net worth converted to a single USD figure, this month's budget vs. actual, top 3 spending categories ranked automatically, and savings-goal progress — all formulas, no typed-in numbers.</p>
+      <h4 data-en="Live dashboard" data-es="Panel en vivo">Live dashboard</h4>
+      <p data-en="Net worth converted to a single USD figure, this month's budget vs. actual, top 3 spending categories ranked automatically, and savings-goal progress — all formulas, no typed-in numbers." data-es="Patrimonio neto convertido a una sola cifra en USD, presupuesto vs. real del mes, las 3 categorías de mayor gasto ordenadas automáticamente, y el progreso de metas de ahorro — todo con fórmulas, sin números tipeados a mano.">Net worth converted to a single USD figure, this month's budget vs. actual, top 3 spending categories ranked automatically, and savings-goal progress — all formulas, no typed-in numbers.</p>
     </div>
     <div class="feature">
-      <h4>Blue-dollar exchange log</h4>
-      <p>A running log of the blue-dollar rate; the whole workbook always references whichever entry is most recent, so every conversion downstream updates automatically as the rate moves.</p>
+      <h4 data-en="Blue-dollar exchange log" data-es="Registro del dólar blue">Blue-dollar exchange log</h4>
+      <p data-en="A running log of the blue-dollar rate; the whole workbook always references whichever entry is most recent, so every conversion downstream updates automatically as the rate moves." data-es="Un registro continuo del tipo de cambio blue; todo el libro de trabajo siempre toma como referencia la entrada más reciente, así que cada conversión se actualiza automáticamente a medida que se mueve el tipo de cambio.">A running log of the blue-dollar rate; the whole workbook always references whichever entry is most recent, so every conversion downstream updates automatically as the rate moves.</p>
       <span class="fnote">Source: bluelytics.com.ar / dolarhoy.com</span>
     </div>
     <div class="feature">
-      <h4>Self-flagging conversions</h4>
-      <p>Every currency exchange gets its implied rate calculated from the actual amounts moved, compared against the current reference rate, and flagged "⚠ REVIEW" if it's off by more than 3% — catching data-entry mistakes before they distort anything else.</p>
+      <h4 data-en="Self-flagging conversions" data-es="Conversiones que se autodetectan">Self-flagging conversions</h4>
+      <p data-en="Every currency exchange gets its implied rate calculated from the actual amounts moved, compared against the current reference rate, and flagged &quot;⚠ REVIEW&quot; if it's off by more than 3% — catching data-entry mistakes before they distort anything else." data-es="Cada cambio de moneda calcula su tipo de cambio implícito a partir de los montos reales movidos, lo compara contra el tipo de cambio de referencia actual, y lo marca «⚠ REVISAR» si se desvía más de un 3% — detectando errores de carga antes de que distorsionen cualquier otra cosa.">Every currency exchange gets its implied rate calculated from the actual amounts moved, compared against the current reference rate, and flagged "⚠ REVIEW" if it's off by more than 3% — catching data-entry mistakes before they distort anything else.</p>
     </div>
     <div class="feature">
-      <h4>Category budgeting</h4>
-      <p>Budgeted vs. actual spend per category, pulled live from the transaction ledger, with variance calculated automatically.</p>
+      <h4 data-en="Category budgeting" data-es="Presupuesto por categoría">Category budgeting</h4>
+      <p data-en="Budgeted vs. actual spend per category, pulled live from the transaction ledger, with variance calculated automatically." data-es="Presupuestado vs. gastado real por categoría, tomado en vivo del libro de transacciones, con la desviación calculada automáticamente.">Budgeted vs. actual spend per category, pulled live from the transaction ledger, with variance calculated automatically.</p>
     </div>
     <div class="feature">
-      <h4>Bills &amp; cash flow</h4>
-      <p>Recurring subscriptions and bills tracked in their native currency and converted to USD, with a 14-day due-soon flag, feeding into a rolling 3-month cash flow forecast.</p>
+      <h4 data-en="Bills &amp; cash flow" data-es="Facturas y flujo de caja">Bills &amp; cash flow</h4>
+      <p data-en="Recurring subscriptions and bills tracked in their native currency and converted to USD, with a 14-day due-soon flag, feeding into a rolling 3-month cash flow forecast." data-es="Suscripciones y facturas recurrentes registradas en su moneda original y convertidas a USD, con una alerta de vencimiento a 14 días, que alimenta una proyección móvil de flujo de caja a 3 meses.">Recurring subscriptions and bills tracked in their native currency and converted to USD, with a 14-day due-soon flag, feeding into a rolling 3-month cash flow forecast.</p>
     </div>
     <div class="feature">
-      <h4>Built to grow</h4>
-      <p>Debts, Investments, and Taxes exist as structured placeholder tabs — ready to activate with real formulas once those parts of my finances are actually relevant, instead of cluttering the workbook now.</p>
+      <h4 data-en="Built to grow" data-es="Diseñado para crecer">Built to grow</h4>
+      <p data-en="Debts, Investments, and Taxes exist as structured placeholder tabs — ready to activate with real formulas once those parts of my finances are actually relevant, instead of cluttering the workbook now." data-es="Deudas, Inversiones e Impuestos existen como pestañas de reserva ya estructuradas — listas para activarse con fórmulas reales cuando esas partes de mis finanzas sean realmente relevantes, en lugar de saturar el libro de trabajo desde ahora.">Debts, Investments, and Taxes exist as structured placeholder tabs — ready to activate with real formulas once those parts of my finances are actually relevant, instead of cluttering the workbook now.</p>
     </div>
   </div>
 
-  <h3 style="margin-top:40px; font-size:1.1rem;">All 12 tabs</h3>
+  <h3 style="margin-top:40px; font-size:1.1rem;" data-en="All 12 tabs" data-es="Las 12 pestañas">All 12 tabs</h3>
   <ul class="tab-map">
-    <li><span class="tabname">Dashboard</span><span class="tabdesc">Read-only summary view, entirely formula-driven</span></li>
-    <li><span class="tabname">Accounts</span><span class="tabdesc">Balances by currency and account type</span></li>
-    <li><span class="tabname">Exchange Rates</span><span class="tabdesc">Blue-dollar rate log; latest entry is the reference</span></li>
-    <li><span class="tabname">Currency Exchange Log</span><span class="tabdesc">Every conversion, with the 3% variance flag</span></li>
-    <li><span class="tabname">Transactions</span><span class="tabdesc">The core ledger — everything else derives from here</span></li>
-    <li><span class="tabname">Categories &amp; Budget</span><span class="tabdesc">Budget vs. actual, auto-populated by category</span></li>
-    <li><span class="tabname">Subscriptions &amp; Bills</span><span class="tabdesc">Recurring charges with a due-soon flag</span></li>
-    <li><span class="tabname">Goals</span><span class="tabdesc">Savings targets with live % complete</span></li>
-    <li><span class="tabname">Debts</span><span class="tabdesc">Placeholder, ready when needed</span></li>
-    <li><span class="tabname">Cash Flow Forecast</span><span class="tabdesc">Rolling 3-month projection</span></li>
-    <li><span class="tabname">Investments</span><span class="tabdesc">Placeholder, ready when needed</span></li>
-    <li><span class="tabname">Taxes</span><span class="tabdesc">Placeholder, ready when needed</span></li>
+    <li><span class="tabname" data-en="Dashboard" data-es="Panel">Dashboard</span><span class="tabdesc" data-en="Read-only summary view, entirely formula-driven" data-es="Vista resumen de solo lectura, totalmente basada en fórmulas">Read-only summary view, entirely formula-driven</span></li>
+    <li><span class="tabname" data-en="Accounts" data-es="Cuentas">Accounts</span><span class="tabdesc" data-en="Balances by currency and account type" data-es="Saldos por moneda y tipo de cuenta">Balances by currency and account type</span></li>
+    <li><span class="tabname" data-en="Exchange Rates" data-es="Tipos de Cambio">Exchange Rates</span><span class="tabdesc" data-en="Blue-dollar rate log; latest entry is the reference" data-es="Registro del dólar blue; la entrada más reciente es la referencia">Blue-dollar rate log; latest entry is the reference</span></li>
+    <li><span class="tabname" data-en="Currency Exchange Log" data-es="Registro de Cambio de Moneda">Currency Exchange Log</span><span class="tabdesc" data-en="Every conversion, with the 3% variance flag" data-es="Cada conversión, con la alerta de desviación del 3%">Every conversion, with the 3% variance flag</span></li>
+    <li><span class="tabname" data-en="Transactions" data-es="Transacciones">Transactions</span><span class="tabdesc" data-en="The core ledger — everything else derives from here" data-es="El libro central — todo lo demás se deriva de acá">The core ledger — everything else derives from here</span></li>
+    <li><span class="tabname" data-en="Categories &amp; Budget" data-es="Categorías y Presupuesto">Categories &amp; Budget</span><span class="tabdesc" data-en="Budget vs. actual, auto-populated by category" data-es="Presupuesto vs. real, autocompletado por categoría">Budget vs. actual, auto-populated by category</span></li>
+    <li><span class="tabname" data-en="Subscriptions &amp; Bills" data-es="Suscripciones y Facturas">Subscriptions &amp; Bills</span><span class="tabdesc" data-en="Recurring charges with a due-soon flag" data-es="Cargos recurrentes con alerta de vencimiento próximo">Recurring charges with a due-soon flag</span></li>
+    <li><span class="tabname" data-en="Goals" data-es="Metas">Goals</span><span class="tabdesc" data-en="Savings targets with live % complete" data-es="Metas de ahorro con % completado en vivo">Savings targets with live % complete</span></li>
+    <li><span class="tabname" data-en="Debts" data-es="Deudas">Debts</span><span class="tabdesc" data-en="Placeholder, ready when needed" data-es="Pestaña de reserva, lista para cuando se necesite">Placeholder, ready when needed</span></li>
+    <li><span class="tabname" data-en="Cash Flow Forecast" data-es="Proyección de Flujo de Caja">Cash Flow Forecast</span><span class="tabdesc" data-en="Rolling 3-month projection" data-es="Proyección móvil a 3 meses">Rolling 3-month projection</span></li>
+    <li><span class="tabname" data-en="Investments" data-es="Inversiones">Investments</span><span class="tabdesc" data-en="Placeholder, ready when needed" data-es="Pestaña de reserva, lista para cuando se necesite">Placeholder, ready when needed</span></li>
+    <li><span class="tabname" data-en="Taxes" data-es="Impuestos">Taxes</span><span class="tabdesc" data-en="Placeholder, ready when needed" data-es="Pestaña de reserva, lista para cuando se necesite">Placeholder, ready when needed</span></li>
   </ul>
 </section>
 
 <section class="wrap case">
   <div class="case-head">
     <span class="case-num">3</span>
-    <h2>The outcome</h2>
+    <h2 data-en="The outcome" data-es="El resultado">The outcome</h2>
   </div>
   <ul class="outcome-list">
     <li>
       <span class="check">✓</span>
       <div>
-        <strong>One honest number</strong>
-        <span class="body">Net worth shows up as a single USD figure regardless of which currency or account it's actually sitting in — no mental math required to check where I stand.</span>
+        <strong data-en="One honest number" data-es="Un número honesto">One honest number</strong>
+        <span class="body" data-en="Net worth shows up as a single USD figure regardless of which currency or account it's actually sitting in — no mental math required to check where I stand." data-es="El patrimonio neto aparece como una sola cifra en USD sin importar en qué moneda o cuenta esté realmente — sin necesidad de hacer cálculos mentales para saber cómo estoy parada.">Net worth shows up as a single USD figure regardless of which currency or account it's actually sitting in — no mental math required to check where I stand.</span>
       </div>
     </li>
     <li>
       <span class="check">✓</span>
       <div>
-        <strong>Zero manual upkeep</strong>
-        <span class="body">Logging a transaction is the only input the system needs; budgets, the dashboard, and goal tracking update themselves.</span>
+        <strong data-en="Zero manual upkeep" data-es="Cero mantenimiento manual">Zero manual upkeep</strong>
+        <span class="body" data-en="Logging a transaction is the only input the system needs; budgets, the dashboard, and goal tracking update themselves." data-es="Registrar una transacción es el único dato que el sistema necesita; los presupuestos, el panel y el seguimiento de metas se actualizan solos.">Logging a transaction is the only input the system needs; budgets, the dashboard, and goal tracking update themselves.</span>
       </div>
     </li>
     <li>
       <span class="check">✓</span>
       <div>
-        <strong>A built-in error check</strong>
-        <span class="body">The 3% variance flag has already caught a mistyped conversion before it could quietly skew a month's numbers — which matters given how much the blue-dollar rate can move.</span>
+        <strong data-en="A built-in error check" data-es="Una verificación de errores incorporada">A built-in error check</strong>
+        <span class="body" data-en="The 3% variance flag has already caught a mistyped conversion before it could quietly skew a month's numbers — which matters given how much the blue-dollar rate can move." data-es="La alerta de desviación del 3% ya detectó una conversión mal cargada antes de que distorsionara silenciosamente los números de un mes — algo importante dado cuánto puede moverse el dólar blue.">The 3% variance flag has already caught a mistyped conversion before it could quietly skew a month's numbers — which matters given how much the blue-dollar rate can move.</span>
       </div>
     </li>
   </ul>
 
-  <div class="soon-note">Screenshots of the dashboard and currency exchange log (with placeholder data) coming soon.</div>
+  <div class="soon-note" data-en="Screenshots of the dashboard and currency exchange log (with placeholder data) coming soon." data-es="Capturas de pantalla del panel y del registro de cambio de moneda (con datos de ejemplo) próximamente.">Screenshots of the dashboard and currency exchange log (with placeholder data) coming soon.</div>
 </section>
 
 <footer>
