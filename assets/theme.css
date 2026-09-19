@@ -1331,7 +1331,7 @@
   }
   .tab-map li:nth-child(-n+2){ border-top:none; }
 
-  body.page-finance-tracker .soon-note{
+  body.page-finance-tracker .soon-note, body.page-projects .soon-note{
     margin-top:28px;
     padding:14px 18px;
     border:1px dashed var(--line);
