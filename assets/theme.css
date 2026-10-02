@@ -1417,6 +1417,64 @@
 
 
 
+
+  /* ================= SALES ANALYSIS CASE STUDY (sales-analysis.html) — page-specific ================= */
+  /* Reuses the finance-tracker case-study classes (.case, .feature-grid, .outcome-list, .meta-row) */
+
+  .headline-stats{ margin-top:28px; }
+  body.page-sales-analysis .role-stats .num{ font-size:1.5rem; }
+  body.page-sales-analysis section.case .role-stats{ margin-top:22px; }
+
+  .sub-h{
+    margin-top:30px;
+    font-size:1.1rem;
+  }
+  .flow{
+    margin-top:12px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+  }
+  .flow span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink);
+    border:1px dashed var(--ochre);
+    padding:5px 12px;
+    border-radius:100px;
+  }
+  .flow span.arrow{
+    border:none;
+    padding:0;
+    color:var(--ochre-deep);
+  }
+
+  .dash-figure{
+    margin:24px 0 0;
+  }
+  .dash-figure a{ display:block; }
+  .dash-figure img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:#fff;
+    transition: box-shadow 0.18s ease;
+  }
+  .dash-figure a:hover img{
+    box-shadow: 0 10px 24px -14px rgba(27,42,58,0.35);
+  }
+  .dash-figure figcaption{
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+  }
+
+  body.page-sales-analysis .outcome-list .check{ color:var(--ochre-deep); }
+
   footer{
     padding:36px 0 60px;
     font-family:'IBM Plex Mono', monospace;
