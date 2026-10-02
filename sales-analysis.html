@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Performance &amp; Profitability Analysis — Pilar Göttert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body class="page-sales-analysis">
+
+<nav class="topnav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pilar Göttert</a>
+    <ul>
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="experience.html" data-en="Experience" data-es="Experiencia">Experience</a></li>
+      <li><a href="education.html" data-en="Education" data-es="Educación">Education</a></li>
+      <li><a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a></li>
+      <li><a href="beyond-work.html" data-en="Beyond Work" data-es="Más allá del trabajo">Beyond Work</a></li>
+      <li><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      <li class="nav-toggles">
+        <button class="toggle-btn lang-toggle" aria-label="Switch language" type="button"><span class="lang-current">EN</span></button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle dark mode" type="button">
+          <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap page-head">
+  <a class="back-link" href="projects.html" data-en="← Back to projects" data-es="← Volver a proyectos">← Back to projects</a>
+  <h1 class="page-title" data-en="Sales Performance &amp; Profitability Analysis" data-es="Análisis de Desempeño Comercial y Rentabilidad">Sales Performance &amp; Profitability Analysis</h1>
+  <p class="page-sub" data-en="An end-to-end business analytics project analyzing two years of sales data to find what drove revenue growth — across regions, customer segments, product categories and individual products — and how profitability changed along the way." data-es="Un proyecto de análisis de negocio de punta a punta que estudia dos años de datos de ventas para entender qué impulsó el crecimiento de los ingresos — por región, segmento de clientes, categoría y producto — y cómo cambió la rentabilidad en el camino.">
+    An end-to-end business analytics project analyzing two years of sales data to find what drove
+    revenue growth — across regions, customer segments, product categories and individual products —
+    and how profitability changed along the way.
+  </p>
+  <div class="meta-row">
+    <span>Excel</span>
+    <span>SQL</span>
+    <span>Power BI</span>
+    <span>DAX</span>
+    <span data-en="Portfolio project" data-es="Proyecto de portfolio">Portfolio project</span>
+  </div>
+
+  <div class="role-stats headline-stats">
+    <div><div class="num">$40.66M</div><div class="lbl" data-en="2025 revenue" data-es="Ingresos 2025">2025 revenue</div></div>
+    <div><div class="num">+13.5%</div><div class="lbl" data-en="Revenue growth" data-es="Crecimiento de ingresos">Revenue growth</div></div>
+    <div><div class="num">+22.6%</div><div class="lbl" data-en="Gross profit growth" data-es="Crecimiento de ganancia bruta">Gross profit growth</div></div>
+    <div><div class="num">+2.8 pp</div><div class="lbl" data-en="Gross margin" data-es="Margen bruto">Gross margin</div></div>
+  </div>
+</header>
+
+<!-- 1. Business problem -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">1</span>
+    <h2 data-en="The business problem" data-es="El problema de negocio">The business problem</h2>
+  </div>
+  <p data-en="A company selling industrial equipment, components and services grew its revenue between 2024 and 2025 — but a single growth figure doesn't say where that growth came from, whether it was spread evenly, or whether it came at the cost of profitability." data-es="Una empresa que vende equipos industriales, componentes y servicios aumentó sus ingresos entre 2024 y 2025 — pero una sola cifra de crecimiento no dice de dónde vino ese crecimiento, si fue parejo, o si se logró a costa de la rentabilidad.">
+    A company selling industrial equipment, components and services grew its revenue between 2024
+    and 2025 — but a single growth figure doesn't say where that growth came from, whether it was
+    spread evenly, or whether it came at the cost of profitability.
+  </p>
+  <p data-en="The goal was to answer one question: how is the business performing, what is driving revenue and profitability, and where are the opportunities for improvement? The analysis compares both years across customer segments, regions, product categories and individual products, while tracking gross margin throughout." data-es="El objetivo era responder una pregunta: ¿cómo le está yendo al negocio, qué impulsa los ingresos y la rentabilidad, y dónde están las oportunidades de mejora? El análisis compara ambos años por segmento de clientes, región, categoría y producto, siguiendo el margen bruto en todo momento.">
+    The goal was to answer one question: how is the business performing, what is driving revenue
+    and profitability, and where are the opportunities for improvement? The analysis compares both
+    years across customer segments, regions, product categories and individual products, while
+    tracking gross margin throughout.
+  </p>
+</section>
+
+<!-- 2. Data & approach -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">2</span>
+    <h2 data-en="Data &amp; approach" data-es="Datos y enfoque">Data &amp; approach</h2>
+  </div>
+  <p data-en="The dataset is synthetic, built for a fictional industrial-equipment company (InduTech Solutions), and includes intentional data-quality issues to clean. All companies, people and figures are fictional." data-es="El conjunto de datos es sintético, creado para una empresa ficticia de equipos industriales (InduTech Solutions), e incluye problemas de calidad de datos intencionales para limpiar. Todas las empresas, personas y cifras son ficticias.">
+    The dataset is synthetic, built for a fictional industrial-equipment company (InduTech Solutions),
+    and includes intentional data-quality issues to clean. All companies, people and figures are fictional.
+  </p>
+
+  <div class="role-stats">
+    <div><div class="num">2,500</div><div class="lbl" data-en="Order lines" data-es="Líneas de pedido">Order lines</div></div>
+    <div><div class="num">1,650</div><div class="lbl" data-en="Unique orders" data-es="Pedidos únicos">Unique orders</div></div>
+    <div><div class="num">50</div><div class="lbl" data-en="Customers" data-es="Clientes">Customers</div></div>
+    <div><div class="num">24</div><div class="lbl" data-en="Products" data-es="Productos">Products</div></div>
+    <div><div class="num">5</div><div class="lbl" data-en="Regions" data-es="Regiones">Regions</div></div>
+    <div><div class="num">2024–25</div><div class="lbl" data-en="Period" data-es="Período">Period</div></div>
+  </div>
+
+  <h3 class="sub-h" data-en="Process" data-es="Proceso">Process</h3>
+  <div class="flow">
+    <span data-en="Data cleaning" data-es="Limpieza de datos">Data cleaning</span><span class="arrow">→</span>
+    <span data-en="Excel analysis" data-es="Análisis en Excel">Excel analysis</span><span class="arrow">→</span>
+    <span data-en="SQL analysis" data-es="Análisis en SQL">SQL analysis</span><span class="arrow">→</span>
+    <span data-en="Power BI dashboard" data-es="Dashboard en Power BI">Power BI dashboard</span>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <h4>Excel</h4>
+      <p data-en="Inspected and cleaned the raw tables, explored the data, and calculated the first year-over-year figures — which later served as a reference to validate SQL and Power BI results." data-es="Inspeccioné y limpié las tablas crudas, exploré los datos y calculé las primeras cifras interanuales — que después sirvieron de referencia para validar los resultados de SQL y Power BI.">Inspected and cleaned the raw tables, explored the data, and calculated the first year-over-year figures — which later served as a reference to validate SQL and Power BI results.</p>
+    </div>
+    <div class="feature">
+      <h4>SQL</h4>
+      <p data-en="Queried the relational tables (orders, customers, products) to answer specific business questions: revenue and growth by region, segment and category, and the products behind the increase." data-es="Consulté las tablas relacionales (pedidos, clientes, productos) para responder preguntas de negocio concretas: ingresos y crecimiento por región, segmento y categoría, y los productos detrás del aumento.">Queried the relational tables (orders, customers, products) to answer specific business questions: revenue and growth by region, segment and category, and the products behind the increase.</p>
+    </div>
+    <div class="feature">
+      <h4>Power BI</h4>
+      <p data-en="Built the data model and DAX measures — year-specific revenue, gross profit, orders and average order value, plus growth and margin-change measures — and designed the dashboard around them." data-es="Armé el modelo de datos y las medidas DAX — ingresos, ganancia bruta, pedidos y valor promedio por pedido para cada año, más medidas de crecimiento y variación de margen — y diseñé el dashboard en base a ellas.">Built the data model and DAX measures — year-specific revenue, gross profit, orders and average order value, plus growth and margin-change measures — and designed the dashboard around them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Dashboard -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">3</span>
+    <h2 data-en="The dashboard" data-es="El dashboard">The dashboard</h2>
+  </div>
+  <p data-en="The dashboard gives a one-page overview: headline KPIs compared with 2024, the monthly revenue trend, where growth came from by region, customer segment and product, and how revenue relates to gross margin for each product." data-es="El dashboard ofrece una vista general en una sola página: los KPIs principales comparados con 2024, la evolución mensual de ingresos, de dónde vino el crecimiento por región, segmento de clientes y producto, y cómo se relacionan los ingresos con el margen bruto de cada producto.">
+    The dashboard gives a one-page overview: headline KPIs compared with 2024, the monthly revenue
+    trend, where growth came from by region, customer segment and product, and how revenue relates
+    to gross margin for each product.
+  </p>
+  <figure class="dash-figure">
+    <a href="assets/projects/sales-dashboard.png" target="_blank" rel="noopener">
+      <img src="assets/projects/sales-dashboard.png" alt="Power BI dashboard: KPI cards, monthly revenue 2024 vs 2025, revenue increase by region, top 10 products by revenue increase, revenue by customer segment, and revenue vs gross margin by product" loading="lazy">
+    </a>
+    <figcaption data-en="Power BI dashboard — click to open full size." data-es="Dashboard en Power BI — hacé clic para verlo en tamaño completo.">Power BI dashboard — click to open full size.</figcaption>
+  </figure>
+</section>
+
+<!-- 4. Key insights -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">4</span>
+    <h2 data-en="Key insights" data-es="Hallazgos clave">Key insights</h2>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <h4 data-en="Overall performance" data-es="Desempeño general">Overall performance</h4>
+      <p data-en="Revenue grew 13.5%, from $35.83M in 2024 to $40.66M in 2025. Gross profit grew faster (+22.6%, from $12.45M to $15.26M), lifting gross margin from 34.74% to 37.54%." data-es="Los ingresos crecieron un 13,5%, de $35,83M en 2024 a $40,66M en 2025. La ganancia bruta creció más rápido (+22,6%, de $12,45M a $15,26M), llevando el margen bruto de 34,74% a 37,54%.">Revenue grew 13.5%, from $35.83M in 2024 to $40.66M in 2025. Gross profit grew faster (+22.6%, from $12.45M to $15.26M), lifting gross margin from 34.74% to 37.54%.</p>
+    </div>
+    <div class="feature">
+      <h4 data-en="More orders, not bigger ones" data-es="Más pedidos, no pedidos más grandes">More orders, not bigger ones</h4>
+      <p data-en="Orders rose from 774 to 876 (+13.2%) — almost exactly in line with revenue — while average order value stayed flat at about $46.4K (+0.3%). Growth came from volume, not from larger orders." data-es="Los pedidos pasaron de 774 a 876 (+13,2%) — casi igual que los ingresos — mientras que el valor promedio por pedido se mantuvo estable en unos $46,4K (+0,3%). El crecimiento vino del volumen, no de pedidos más grandes.">Orders rose from 774 to 876 (+13.2%) — almost exactly in line with revenue — while average order value stayed flat at about $46.4K (+0.3%). Growth came from volume, not from larger orders.</p>
+    </div>
+    <div class="feature">
+      <h4 data-en="Regional performance" data-es="Desempeño por región">Regional performance</h4>
+      <p data-en="Cuyo was the standout: revenue rose 77% (+$2.40M), about half of the company's total growth. Central added $1.08M (+12%) and Patagonia $0.92M (+26%), while Buenos Aires and NOA grew only 2% each." data-es="Cuyo fue la región destacada: sus ingresos subieron un 77% (+$2,40M), cerca de la mitad del crecimiento total de la empresa. Central sumó $1,08M (+12%) y Patagonia $0,92M (+26%), mientras que Buenos Aires y NOA crecieron apenas un 2% cada una.">Cuyo was the standout: revenue rose 77% (+$2.40M), about half of the company's total growth. Central added $1.08M (+12%) and Patagonia $0.92M (+26%), while Buenos Aires and NOA grew only 2% each.</p>
+    </div>
+    <div class="feature">
+      <h4 data-en="Product categories" data-es="Categorías de producto">Product categories</h4>
+      <p data-en="Equipment makes up about 80% of revenue and drove about 72% of the growth (+$3.47M, +12%). Components grew fastest (+21%, +$1.28M). Services grew 10% from a small base, but carries the highest gross margin (52%, vs. 41% for Components and 36% for Equipment)." data-es="Equipos representa cerca del 80% de los ingresos y explicó alrededor del 72% del crecimiento (+$3,47M, +12%). Componentes fue la categoría que más creció (+21%, +$1,28M). Servicios creció un 10% desde una base chica, pero tiene el mayor margen bruto (52%, frente a 41% de Componentes y 36% de Equipos).">Equipment makes up about 80% of revenue and drove about 72% of the growth (+$3.47M, +12%). Components grew fastest (+21%, +$1.28M). Services grew 10% from a small base, but carries the highest gross margin (52%, vs. 41% for Components and 36% for Equipment).</p>
+    </div>
+    <div class="feature">
+      <h4 data-en="Customer segments" data-es="Segmentos de clientes">Customer segments</h4>
+      <p data-en="Growth came from Medium (+26%, +$3.16M) and Small (+28%, +$1.29M) customers. Large customers — the biggest segment — were nearly flat (+2%)." data-es="El crecimiento vino de los clientes medianos (+26%, +$3,16M) y pequeños (+28%, +$1,29M). Los clientes grandes — el segmento más importante — prácticamente no crecieron (+2%).">Growth came from Medium (+26%, +$3.16M) and Small (+28%, +$1.29M) customers. Large customers — the biggest segment — were nearly flat (+2%).</p>
+    </div>
+    <div class="feature">
+      <h4 data-en="Products &amp; profitability" data-es="Productos y rentabilidad">Products &amp; profitability</h4>
+      <p data-en="Painting booths led the growth: the Industrial Painting Booth (+$1.41M) and Modular Painting Booth (+$1.05M), followed by the High-Temperature Heating System (+$0.87M). The highest-revenue equipment earns the lowest margins (roughly 33–37%), while services and sensors reach about 48–55% on much smaller volumes." data-es="Las cabinas de pintura lideraron el crecimiento: la Cabina de Pintura Industrial (+$1,41M) y la Cabina de Pintura Modular (+$1,05M), seguidas por el Sistema de Calefacción de Alta Temperatura (+$0,87M). Los equipos con más ingresos tienen los márgenes más bajos (aprox. 33–37%), mientras que servicios y sensores llegan a cerca de 48–55% con volúmenes mucho menores.">Painting booths led the growth: the Industrial Painting Booth (+$1.41M) and Modular Painting Booth (+$1.05M), followed by the High-Temperature Heating System (+$0.87M). The highest-revenue equipment earns the lowest margins (roughly 33–37%), while services and sensors reach about 48–55% on much smaller volumes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Business implications -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">5</span>
+    <h2 data-en="Business implications" data-es="Implicancias para el negocio">Business implications</h2>
+  </div>
+  <p data-en="The data shows what changed, not why — so each finding points to a question worth investigating rather than a conclusion." data-es="Los datos muestran qué cambió, no por qué — así que cada hallazgo apunta a una pregunta que vale la pena investigar, más que a una conclusión.">
+    The data shows what changed, not why — so each finding points to a question worth investigating
+    rather than a conclusion.
+  </p>
+  <ul class="outcome-list">
+    <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Understand Cuyo's jump" data-es="Entender el salto de Cuyo">Understand Cuyo's jump</strong>
+        <span class="body" data-en="Half of the company's growth came from one mid-sized region. Identifying which customers and products drove it would show whether it's repeatable — and whether the same approach could work in other regions." data-es="La mitad del crecimiento de la empresa vino de una sola región de tamaño medio. Identificar qué clientes y productos lo impulsaron mostraría si es repetible — y si el mismo enfoque podría funcionar en otras regiones.">Half of the company's growth came from one mid-sized region. Identifying which customers and products drove it would show whether it's repeatable — and whether the same approach could work in other regions.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="The core base isn't growing" data-es="La base principal no está creciendo">The core base isn't growing</strong>
+        <span class="body" data-en="Large customers and Buenos Aires barely moved (+2%). Since the largest share of revenue sits there, it's worth reviewing whether there's room to grow within existing accounts, or whether that base is at risk." data-es="Los clientes grandes y Buenos Aires casi no se movieron (+2%). Como ahí está la mayor parte de los ingresos, vale la pena revisar si hay margen para crecer dentro de las cuentas existentes, o si esa base está en riesgo.">Large customers and Buenos Aires barely moved (+2%). Since the largest share of revenue sits there, it's worth reviewing whether there's room to grow within existing accounts, or whether that base is at risk.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Order value is an untapped lever" data-es="El valor por pedido es una palanca sin usar">Order value is an untapped lever</strong>
+        <span class="body" data-en="All of the growth came from winning more orders, with no change in order size. Raising average order value — for example by pairing components or services with equipment sales — is a second growth lever that hasn't been used yet." data-es="Todo el crecimiento vino de ganar más pedidos, sin cambios en el tamaño de cada uno. Aumentar el valor promedio por pedido — por ejemplo, sumando componentes o servicios a las ventas de equipos — es una segunda palanca de crecimiento que todavía no se aprovechó.">All of the growth came from winning more orders, with no change in order size. Raising average order value — for example by pairing components or services with equipment sales — is a second growth lever that hasn't been used yet.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Protect the margin gain" data-es="Proteger la mejora de margen">Protect the margin gain</strong>
+        <span class="body" data-en="Gross profit grew faster than revenue, which is a healthy sign. Pinning down what drove the 2.8 pp margin improvement — pricing, costs or mix — would help make sure it holds." data-es="La ganancia bruta creció más rápido que los ingresos, lo cual es una buena señal. Precisar qué impulsó la mejora de 2,8 pp en el margen — precios, costos o mix — ayudaría a asegurar que se mantenga.">Gross profit grew faster than revenue, which is a healthy sign. Pinning down what drove the 2.8 pp margin improvement — pricing, costs or mix — would help make sure it holds.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Services: high margin, low volume" data-es="Servicios: alto margen, bajo volumen">Services: high margin, low volume</strong>
+        <span class="body" data-en="Services earn the best margins but are a small part of revenue. Attaching installation and maintenance to equipment sales could be a way to lift overall profitability — worth testing." data-es="Los servicios tienen los mejores márgenes pero son una parte chica de los ingresos. Sumar instalación y mantenimiento a las ventas de equipos podría ser una forma de mejorar la rentabilidad general — vale la pena probarlo.">Services earn the best margins but are a small part of revenue. Attaching installation and maintenance to equipment sales could be a way to lift overall profitability — worth testing.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Check the November 2024 peak" data-es="Revisar el pico de noviembre 2024">Check the November 2024 peak</strong>
+        <span class="body" data-en="November 2024 ($5.46M) is the only month where 2024 clearly beat 2025, while 2025 was steadier overall. Knowing whether that peak was a one-off would make month-to-month comparisons and forecasts more reliable." data-es="Noviembre 2024 ($5,46M) es el único mes en el que 2024 superó claramente a 2025, mientras que 2025 fue más estable en general. Saber si ese pico fue algo puntual haría más confiables las comparaciones mensuales y las proyecciones.">November 2024 ($5.46M) is the only month where 2024 clearly beat 2025, while 2025 was steadier overall. Knowing whether that peak was a one-off would make month-to-month comparisons and forecasts more reliable.</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- 6. What I learned -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">6</span>
+    <h2 data-en="What I learned" data-es="Lo que aprendí">What I learned</h2>
+  </div>
+  <ul class="outcome-list">
+    <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Turning business questions into SQL" data-es="Traducir preguntas de negocio a SQL">Turning business questions into SQL</strong>
+        <span class="body" data-en="Writing queries across related tables to answer specific questions — growth by region, segment and category, and which products drove the increase." data-es="Escribir consultas sobre tablas relacionadas para responder preguntas concretas — crecimiento por región, segmento y categoría, y qué productos impulsaron el aumento.">Writing queries across related tables to answer specific questions — growth by region, segment and category, and which products drove the increase.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Modeling and DAX in Power BI" data-es="Modelado y DAX en Power BI">Modeling and DAX in Power BI</strong>
+        <span class="body" data-en="Building year-specific measures, growth and margin-change calculations, and text measures for clean data labels — and designing the dashboard so each chart makes one point clearly." data-es="Crear medidas por año, cálculos de crecimiento y de variación de margen, y medidas de texto para etiquetas de datos claras — y diseñar el dashboard para que cada gráfico transmita una idea con claridad.">Building year-specific measures, growth and margin-change calculations, and text measures for clean data labels — and designing the dashboard so each chart makes one point clearly.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Troubleshooting a data-model issue" data-es="Resolver un problema del modelo de datos">Troubleshooting a data-model issue</strong>
+        <span class="body" data-en="Order_Date had been removed in Power Query, which broke every date-based measure. I traced the problem back to that step, restored the column, and re-validated the measures against my Excel and SQL results." data-es="Order_Date se había eliminado en Power Query, lo que rompió todas las medidas basadas en fechas. Rastreé el problema hasta ese paso, restauré la columna y volví a validar las medidas contra mis resultados de Excel y SQL.">Order_Date had been removed in Power Query, which broke every date-based measure. I traced the problem back to that step, restored the column, and re-validated the measures against my Excel and SQL results.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Checking labels after every transformation" data-es="Revisar las etiquetas después de cada transformación">Checking labels after every transformation</strong>
+        <span class="body" data-en="A capitalization step during cleaning had turned the region &quot;NOA&quot; into &quot;Noa&quot;. I fixed it in Power Query with an exact-match replace — and learned to recheck category labels after any text transformation." data-es="Un paso de capitalización durante la limpieza había convertido la región «NOA» en «Noa». Lo corregí en Power Query con un reemplazo de coincidencia exacta — y aprendí a volver a revisar las etiquetas de categorías después de cualquier transformación de texto.">A capitalization step during cleaning had turned the region "NOA" into "Noa". I fixed it in Power Query with an exact-match replace — and learned to recheck category labels after any text transformation.</span>
+      </div>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Validating across tools" data-es="Validar entre herramientas">Validating across tools</strong>
+        <span class="body" data-en="Cross-checking the same figures in Excel, SQL and Power BI caught errors early and made me confident that the final numbers are right." data-es="Contrastar las mismas cifras en Excel, SQL y Power BI permitió detectar errores temprano y me dio confianza en que los números finales son correctos.">Cross-checking the same figures in Excel, SQL and Power BI caught errors early and made me confident that the final numbers are right.</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  © <span id="year"></span> Pilar Göttert
+</footer>
+
+<script src="assets/theme.js"></script>
+
+</body>
+</html>
