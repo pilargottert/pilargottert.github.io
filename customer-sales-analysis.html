@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer &amp; Sales Analysis — Pilar Göttert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body class="page-sales-analysis">
+
+<nav class="topnav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pilar Göttert</a>
+    <ul>
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="experience.html" data-en="Experience" data-es="Experiencia">Experience</a></li>
+      <li><a href="education.html" data-en="Education" data-es="Educación">Education</a></li>
+      <li><a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a></li>
+      <li><a href="beyond-work.html" data-en="Beyond Work" data-es="Más allá del trabajo">Beyond Work</a></li>
+      <li><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      <li class="nav-toggles">
+        <button class="toggle-btn lang-toggle" aria-label="Switch language" type="button"><span class="lang-current">EN</span></button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle dark mode" type="button">
+          <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap page-head">
+  <a class="back-link" href="projects.html" data-en="← Back to projects" data-es="← Volver a proyectos">← Back to projects</a>
+  <h1 class="page-title" data-en="Customer &amp; Sales Analysis" data-es="Análisis de Clientes y Ventas">Customer &amp; Sales Analysis</h1>
+  <p class="page-sub" data-en="A SQL and Tableau analysis of three and a half years of quote-to-order data for a B2B equipment supplier: cleaning messy records, uncovering an undocumented price increase, and tracing how it changed win rates, profit and customers." data-es="Un análisis en SQL y Tableau de tres años y medio de datos de cotizaciones y pedidos de un proveedor B2B de equipos: limpieza de registros desprolijos, detección de un aumento de precios no documentado y su efecto en el win rate, la ganancia y los clientes.">A SQL and Tableau analysis of three and a half years of quote-to-order data for a B2B equipment supplier: cleaning messy records, uncovering an undocumented price increase, and tracing how it changed win rates, profit and customers.</p>
+  <div class="meta-row">
+    <span>SQL</span>
+    <span>SQLite</span>
+    <span>Tableau</span>
+    <span data-en="Portfolio project" data-es="Proyecto de portfolio">Portfolio project</span>
+  </div>
+
+  <div class="role-stats headline-stats">
+    <div><div class="num">+12.6%</div><div class="lbl" data-en="Hidden price increase found" data-es="Aumento de precios oculto detectado">Hidden price increase found</div></div>
+    <div><div class="num">−7.4 pp</div><div class="lbl" data-en="Win rate after the increase" data-es="Win rate después del aumento">Win rate after the increase</div></div>
+    <div><div class="num">+21%</div><div class="lbl" data-en="Gross profit after the increase" data-es="Ganancia bruta después del aumento">Gross profit after the increase</div></div>
+    <div><div class="num">64%</div><div class="lbl" data-en="Revenue from the top 20% of customers" data-es="Ingresos del 20% de clientes más grandes">Revenue from the top 20% of customers</div></div>
+  </div>
+
+  <div class="hero-links">
+    <a class="btn primary" href="TABLEAU_LINK" target="_blank" rel="noopener" data-en="View the dashboards on Tableau Public ↗" data-es="Ver los dashboards en Tableau Public ↗">View the dashboards on Tableau Public ↗</a>
+    <a class="btn ghost" href="https://github.com/pilargottert/customer-sales-analysis" target="_blank" rel="noopener" data-en="See the SQL on GitHub ↗" data-es="Ver el SQL en GitHub ↗">See the SQL on GitHub ↗</a>
+  </div>
+</header>
+
+<!-- 1. The business problem -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">1</span>
+    <h2 data-en="The business problem" data-es="El problema de negocio">The business problem</h2>
+  </div>
+  <p data-en="Harbor Line Industrial sells fans, ducting, filtration, pumps, controls and maintenance services to industrial customers across five Argentine regions, and launched a line of solar pumping kits in 2024. Every sale starts as a quote, and only some quotes become orders." data-es="Harbor Line Industrial vende ventiladores, ductos, filtración, bombas, controles y servicios de mantenimiento a clientes industriales en cinco regiones de Argentina, y en 2024 lanzó una línea de kits de bombeo solar. Cada venta empieza con una cotización, y solo algunas cotizaciones se convierten en pedidos.">Harbor Line Industrial sells fans, ducting, filtration, pumps, controls and maintenance services to industrial customers across five Argentine regions, and launched a line of solar pumping kits in 2024. Every sale starts as a quote, and only some quotes become orders.</p>
+  <p data-en="The question: how is the business performing, what is driving revenue and profit, and where should the sales team focus next? Answering it meant looking at the whole pipeline (quotes, win rates, orders, customers and reps), not just at revenue." data-es="La pregunta: ¿cómo le está yendo al negocio, qué impulsa los ingresos y la ganancia, y dónde debería enfocarse el equipo comercial? Para responderla había que mirar todo el proceso (cotizaciones, win rate, pedidos, clientes y vendedores), no solo los ingresos.">The question: how is the business performing, what is driving revenue and profit, and where should the sales team focus next? Answering it meant looking at the whole pipeline (quotes, win rates, orders, customers and reps), not just at revenue.</p>
+</section>
+
+<!-- 2. Data & approach -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">2</span>
+    <h2 data-en="Data &amp; approach" data-es="Datos y enfoque">Data &amp; approach</h2>
+  </div>
+  <p data-en="The dataset is synthetic: a fictional company with a 7-table relational database (reps, customers, products, quotes, quote lines, orders, order lines), generated with built-in data-quality problems to clean. All companies, people and figures are fictional." data-es="El conjunto de datos es sintético: una empresa ficticia con una base de datos relacional de 7 tablas (vendedores, clientes, productos, cotizaciones, ítems de cotización, pedidos e ítems de pedido), generada con problemas de calidad de datos para limpiar. Todas las empresas, personas y cifras son ficticias.">The dataset is synthetic: a fictional company with a 7-table relational database (reps, customers, products, quotes, quote lines, orders, order lines), generated with built-in data-quality problems to clean. All companies, people and figures are fictional.</p>
+  <div class="role-stats">
+      <div><div class="num">3,822</div><div class="lbl" data-en="Quotes" data-es="Cotizaciones">Quotes</div></div>
+      <div><div class="num">1,467</div><div class="lbl" data-en="Orders" data-es="Pedidos">Orders</div></div>
+      <div><div class="num">124</div><div class="lbl" data-en="Customer records" data-es="Registros de clientes">Customer records</div></div>
+      <div><div class="num">24</div><div class="lbl" data-en="Products" data-es="Productos">Products</div></div>
+      <div><div class="num">7</div><div class="lbl" data-en="Sales reps" data-es="Vendedores">Sales reps</div></div>
+      <div><div class="num">2023–26</div><div class="lbl" data-en="Period" data-es="Período">Period</div></div>
+    </div>
+  <h3 class="sub-h" data-en="Process" data-es="Proceso">Process</h3>
+  <div class="flow">
+    <span data-en="Profiling" data-es="Exploración">Profiling</span><span class="arrow">→</span><span data-en="Cleaning" data-es="Limpieza">Cleaning</span><span class="arrow">→</span><span data-en="Analysis base" data-es="Base de análisis">Analysis base</span><span class="arrow">→</span><span data-en="19 business questions" data-es="19 preguntas de negocio">19 business questions</span><span class="arrow">→</span><span data-en="Insights" data-es="Hallazgos">Insights</span><span class="arrow">→</span><span data-en="Tableau dashboards" data-es="Dashboards en Tableau">Tableau dashboards</span>
+  </div>
+  <div class="feature-grid">
+      <div class="feature">
+      <h4 data-en="Cleaning in SQL" data-es="Limpieza en SQL">Cleaning in SQL</h4>
+      <p data-en="Built clean views on top of the raw tables, never editing the originals, plus a mapping table to merge duplicate customers. Every view was reconciled back to its source on row counts and revenue." data-es="Armé vistas limpias sobre las tablas originales, sin modificarlas nunca, y una tabla de mapeo para unificar clientes duplicados. Cada vista se concilió con su fuente en cantidad de filas e ingresos.">Built clean views on top of the raw tables, never editing the originals, plus a mapping table to merge duplicate customers. Every view was reconciled back to its source on row counts and revenue.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Analysis in SQL" data-es="Análisis en SQL">Analysis in SQL</h4>
+      <p data-en="Answered 19 questions, from headline KPIs to window functions (RANK, LAG, NTILE, running totals), CTEs, churn detection and RFM customer segmentation." data-es="Respondí 19 preguntas, desde los KPIs principales hasta funciones de ventana (RANK, LAG, NTILE, acumulados), CTEs, detección de clientes perdidos y segmentación RFM.">Answered 19 questions, from headline KPIs to window functions (RANK, LAG, NTILE, running totals), CTEs, churn detection and RFM customer segmentation.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Tableau Public" data-es="Tableau Public">Tableau Public</h4>
+      <p data-en="Exported four analysis views to CSV and built two dashboards: a sales overview and a pipeline and customers view, each chart titled with the point it makes." data-es="Exporté cuatro vistas de análisis a CSV y armé dos dashboards: uno de resumen de ventas y otro de pipeline y clientes, cada gráfico con un título que dice qué muestra.">Exported four analysis views to CSV and built two dashboards: a sales overview and a pipeline and customers view, each chart titled with the point it makes.</p>
+    </div>
+    </div>
+</section>
+
+<!-- 3. Cleaning the data -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">3</span>
+    <h2 data-en="Cleaning the data" data-es="Limpieza de datos">Cleaning the data</h2>
+  </div>
+  <p data-en="The customer and order data came from an old CRM and an ERP export. Before any analysis, I profiled every table and fixed four problems:" data-es="Los datos de clientes y pedidos venían de un CRM viejo y de una exportación del ERP. Antes de analizar, revisé cada tabla y corregí cuatro problemas:">The customer and order data came from an old CRM and an ERP export. Before any analysis, I profiled every table and fixed four problems:</p>
+  <ul class="outcome-list">
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Duplicate customers" data-es="Clientes duplicados">Duplicate customers</strong>
+        <span class="body" data-en="Four companies had been entered twice under different IDs, and reps kept using both. I merged them through a mapping table. Without it, one top customer&#x27;s revenue was split in two, and another looked like it had stopped buying when it hadn&#x27;t." data-es="Cuatro empresas estaban cargadas dos veces con IDs distintos, y los vendedores seguían usando ambos. Las unifiqué con una tabla de mapeo. Sin ella, los ingresos de un cliente importante quedaban partidos en dos, y otro parecía haber dejado de comprar cuando no era así.">Four companies had been entered twice under different IDs, and reps kept using both. I merged them through a mapping table. Without it, one top customer&#x27;s revenue was split in two, and another looked like it had stopped buying when it hadn&#x27;t.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Duplicate order lines" data-es="Líneas de pedido duplicadas">Duplicate order lines</strong>
+        <span class="body" data-en="14 order lines appeared twice, overstating revenue by about $120K (0.39%)." data-es="14 líneas de pedido aparecían dos veces e inflaban los ingresos en unos $120K (0,39%).">14 order lines appeared twice, overstating revenue by about $120K (0.39%).</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Inconsistent regions" data-es="Regiones inconsistentes">Inconsistent regions</strong>
+        <span class="body" data-en="Five regions were spelled 15 different ways (case, trailing spaces, alternative names). Standardized to one label each." data-es="Cinco regiones estaban escritas de 15 formas distintas (mayúsculas, espacios, nombres alternativos). Las unifiqué con una sola etiqueta cada una.">Five regions were spelled 15 different ways (case, trailing spaces, alternative names). Standardized to one label each.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Missing industry" data-es="Industria faltante">Missing industry</strong>
+        <span class="body" data-en="Eight customers had no industry. I labeled them &quot;Unknown&quot; so they stayed visible, and flagged one top-10 customer whose name clearly points to agriculture." data-es="Ocho clientes no tenían industria. Los etiqueté como &quot;Desconocida&quot; para que siguieran visibles, y marqué a un cliente del top 10 cuyo nombre indica claramente que es del agro.">Eight customers had no industry. I labeled them &quot;Unknown&quot; so they stayed visible, and flagged one top-10 customer whose name clearly points to agriculture.</span>
+      </div>
+    </li>
+    </ul>
+  <p data-en="One fix taught me something about SQLite: its LOWER() function doesn&#x27;t convert accented capital letters, so &quot;HÍDRICOS&quot; and &quot;Hídricos&quot; didn&#x27;t match and the fourth duplicate stayed hidden until I replaced accented letters first." data-es="Una de las correcciones me enseñó algo sobre SQLite: su función LOWER() no convierte mayúsculas con tilde, así que &quot;HÍDRICOS&quot; e &quot;Hídricos&quot; no coincidían, y el cuarto duplicado quedó oculto hasta que reemplacé primero las letras acentuadas.">One fix taught me something about SQLite: its LOWER() function doesn&#x27;t convert accented capital letters, so &quot;HÍDRICOS&quot; and &quot;Hídricos&quot; didn&#x27;t match and the fourth duplicate stayed hidden until I replaced accented letters first.</p>
+</section>
+
+<!-- 4. Finding the hidden price increase -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">4</span>
+    <h2 data-en="Finding the hidden price increase" data-es="El aumento de precios oculto">Finding the hidden price increase</h2>
+  </div>
+  <p data-en="The product table had a single list price, so I checked whether it stayed valid for the whole period. The average quoted price was about 89% of list price until February 2025, then jumped to 100% in March 2025 and stayed there." data-es="La tabla de productos tenía un único precio de lista, así que revisé si seguía siendo válido durante todo el período. El precio cotizado promedio era cerca del 89% del precio de lista hasta febrero de 2025, y en marzo de 2025 saltó al 100% y se mantuvo ahí.">The product table had a single list price, so I checked whether it stayed valid for the whole period. The average quoted price was about 89% of list price until February 2025, then jumped to 100% in March 2025 and stayed there.</p>
+  <p data-en="That step meant the price list had gone up by about 12.6% in March 2025, with no record of it in the data. Correcting for it mattered: without the fix, discounts after March 2025 would have looked like zero. With it, reps kept giving the same ~11% discount on the higher prices, so customers paid the full increase." data-es="Ese salto indicaba que la lista de precios había subido cerca de un 12,6% en marzo de 2025, sin ningún registro en los datos. Corregirlo era importante: sin el ajuste, los descuentos después de marzo de 2025 parecían ser cero. Con el ajuste, se ve que los vendedores siguieron dando el mismo ~11% de descuento sobre precios más altos, así que los clientes pagaron el aumento completo.">That step meant the price list had gone up by about 12.6% in March 2025, with no record of it in the data. Correcting for it mattered: without the fix, discounts after March 2025 would have looked like zero. With it, reps kept giving the same ~11% discount on the higher prices, so customers paid the full increase.</p>
+  <div class="role-stats">
+      <div><div class="num">43.4% → 36.0%</div><div class="lbl" data-en="Win rate, 12 months before vs after" data-es="Win rate, 12 meses antes vs después">Win rate, 12 months before vs after</div></div>
+      <div><div class="num">30.0% → 37.5%</div><div class="lbl" data-en="Gross margin" data-es="Margen bruto">Gross margin</div></div>
+      <div><div class="num">2.35 → 2.83</div><div class="lbl" data-en="Quotes per order won" data-es="Cotizaciones por pedido ganado">Quotes per order won</div></div>
+      <div><div class="num">+21%</div><div class="lbl" data-en="Gross profit" data-es="Ganancia bruta">Gross profit</div></div>
+    </div>
+  <p data-en="Comparing the 12 months before and after the change: the business won fewer deals but earned much more on each one. The cost was more quoting work for every order, and several regular customers who stopped buying around the time of the increase." data-es="Comparando los 12 meses antes y después del cambio: la empresa ganó menos negocios pero ganó mucho más en cada uno. El costo fue más trabajo de cotización por cada pedido, y varios clientes habituales que dejaron de comprar alrededor del aumento.">Comparing the 12 months before and after the change: the business won fewer deals but earned much more on each one. The cost was more quoting work for every order, and several regular customers who stopped buying around the time of the increase.</p>
+</section>
+
+<!-- 5. The dashboards -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">5</span>
+    <h2 data-en="The dashboards" data-es="Los dashboards">The dashboards</h2>
+  </div>
+  <p data-en="Two dashboards on Tableau Public. The first gives an overview of sales, with each year compared with the same months of the previous year. The second focuses on what needs attention: win rates, reps, revenue concentration, the new solar line and the customers worth winning back." data-es="Dos dashboards en Tableau Public. El primero da una vista general de las ventas, comparando cada año con los mismos meses del año anterior. El segundo se enfoca en lo que requiere atención: win rate, vendedores, concentración de ingresos, la nueva línea solar y los clientes que vale la pena recuperar.">Two dashboards on Tableau Public. The first gives an overview of sales, with each year compared with the same months of the previous year. The second focuses on what needs attention: win rates, reps, revenue concentration, the new solar line and the customers worth winning back.</p>
+  <figure class="dash-figure">
+    <a href="assets/projects/harbor-line-dashboard-1.png" target="_blank" rel="noopener">
+      <img src="assets/projects/harbor-line-dashboard-1.png" alt="Tableau dashboard Harbor Line Sales Overview: KPI cards, monthly revenue trend, revenue by region, cumulative revenue by year, and revenue and margin by category" loading="lazy">
+    </a>
+    <figcaption data-en="Sales Overview — click to open full size." data-es="Resumen de ventas — hacé clic para verlo en tamaño completo.">Sales Overview — click to open full size.</figcaption>
+  </figure>
+  <figure class="dash-figure">
+    <a href="assets/projects/harbor-line-dashboard-2.png" target="_blank" rel="noopener">
+      <img src="assets/projects/harbor-line-dashboard-2.png" alt="Tableau dashboard Harbor Line Pipeline &amp; Customers: win rate by quarter, win rate by discount band, rep win rates before and after the price change, revenue concentration, Solar Pumping revenue, and top At Risk customers" loading="lazy">
+    </a>
+    <figcaption data-en="Pipeline &amp; Customers — click to open full size." data-es="Pipeline y clientes — hacé clic para verlo en tamaño completo.">Pipeline &amp; Customers — click to open full size.</figcaption>
+  </figure>
+</section>
+
+<!-- 6. Key insights -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">6</span>
+    <h2 data-en="Key insights" data-es="Hallazgos clave">Key insights</h2>
+  </div>
+  <div class="feature-grid">
+      <div class="feature">
+      <h4 data-en="The price increase raised profit but lost customers" data-es="El aumento de precios subió la ganancia pero hizo perder clientes">The price increase raised profit but lost customers</h4>
+      <p data-en="After the 12.6% increase, win rate fell from 43.4% to 36.0% and orders fell 12%, but gross profit grew about 21%. Six of the ten regular customers who have since gone quiet stopped buying around the change." data-es="Después del aumento del 12,6%, el win rate bajó de 43,4% a 36,0% y los pedidos cayeron un 12%, pero la ganancia bruta creció cerca de un 21%. Seis de los diez clientes habituales que dejaron de comprar lo hicieron alrededor del cambio.">After the 12.6% increase, win rate fell from 43.4% to 36.0% and orders fell 12%, but gross profit grew about 21%. Six of the ten regular customers who have since gone quiet stopped buying around the change.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Revenue depends on a few customers" data-es="Los ingresos dependen de pocos clientes">Revenue depends on a few customers</h4>
+      <p data-en="The top 20% of customers bring in 64.1% of revenue. In the Norte region, a single customer accounts for 55.6% of the region&#x27;s revenue." data-es="El 20% de los clientes más grandes aporta el 64,1% de los ingresos. En la región Norte, un solo cliente representa el 55,6% de los ingresos de la región.">The top 20% of customers bring in 64.1% of revenue. In the Norte region, a single customer accounts for 55.6% of the region&#x27;s revenue.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Solar Pumping is small but growing fast" data-es="Bombeo Solar es chico pero crece rápido">Solar Pumping is small but growing fast</h4>
+      <p data-en="Launched in August 2024, the line brought in $774K in January–June 2026, more than all of 2025. Quotes that include solar products are won 47.1% of the time, against 37.7% without." data-es="Lanzada en agosto de 2024, la línea generó $774K entre enero y junio de 2026, más que en todo 2025. Las cotizaciones que incluyen productos solares se ganan el 47,1% de las veces, contra 37,7% sin ellos.">Launched in August 2024, the line brought in $774K in January–June 2026, more than all of 2025. Quotes that include solar products are won 47.1% of the time, against 37.7% without.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Services earns a quarter of all profit" data-es="Servicios genera un cuarto de toda la ganancia">Services earns a quarter of all profit</h4>
+      <p data-en="Services is 16.5% of revenue but 25.5% of gross profit, with a 51.4% margin. Ducting has the lowest margin, at 23.9%." data-es="Servicios es el 16,5% de los ingresos pero el 25,5% de la ganancia bruta, con un margen del 51,4%. Ductos tiene el margen más bajo, 23,9%.">Services is 16.5% of revenue but 25.5% of gross profit, with a 51.4% margin. Ducting has the lowest margin, at 23.9%.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Some customers cost more than they bring in" data-es="Algunos clientes cuestan más de lo que aportan">Some customers cost more than they bring in</h4>
+      <p data-en="Five customers asked for 10% of all quotes but brought in only 2% of revenue, winning just 12–18% of the time against a 38.5% average." data-es="Cinco clientes pidieron el 10% de todas las cotizaciones pero aportaron solo el 2% de los ingresos, con un win rate de 12–18% contra un promedio de 38,5%.">Five customers asked for 10% of all quotes but brought in only 2% of revenue, winning just 12–18% of the time against a 38.5% average.</p>
+    </div>
+      <div class="feature">
+      <h4 data-en="Only one rep improved after the increase" data-es="Solo un vendedor mejoró después del aumento">Only one rep improved after the increase</h4>
+      <p data-en="Every rep kept the same discount level, and almost all of them won less after March 2025. Diego Arrieta was the only rep whose win rate rose (+2.3 pp)." data-es="Todos los vendedores mantuvieron el mismo nivel de descuento, y casi todos ganaron menos después de marzo de 2025. Diego Arrieta fue el único cuyo win rate subió (+2,3 pp).">Every rep kept the same discount level, and almost all of them won less after March 2025. Diego Arrieta was the only rep whose win rate rose (+2.3 pp).</p>
+    </div>
+    </div>
+</section>
+
+<!-- 7. Recommendations -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">7</span>
+    <h2 data-en="Recommendations" data-es="Recomendaciones">Recommendations</h2>
+  </div>
+  <ul class="outcome-list">
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Keep the new prices, win back the customers who left" data-es="Mantener los precios nuevos y recuperar a los clientes que se fueron">Keep the new prices, win back the customers who left</strong>
+        <span class="body" data-en="The increase paid off overall. A targeted win-back with the lapsed regulars, starting with the most valuable, would recover part of what it cost." data-es="El aumento compensó en general. Una acción dirigida a recuperar a los clientes habituales que se fueron, empezando por los más valiosos, recuperaría parte de lo que costó.">The increase paid off overall. A targeted win-back with the lapsed regulars, starting with the most valuable, would recover part of what it cost.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Protect the top accounts" data-es="Proteger las cuentas principales">Protect the top accounts</strong>
+        <span class="body" data-en="Give each of the 24 top customers a named owner, and grow the next tier so no single account carries a region." data-es="Asignar un responsable a cada uno de los 24 clientes principales, y hacer crecer al siguiente grupo para que ninguna región dependa de una sola cuenta.">Give each of the 24 top customers a named owner, and grow the next tier so no single account carries a region.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Push Solar Pumping to agricultural customers" data-es="Ofrecer Bombeo Solar a clientes del agro">Push Solar Pumping to agricultural customers</strong>
+        <span class="body" data-en="About 88% of solar revenue comes from agriculture. Start with Centro, where most agricultural revenue is, and test water utilities next." data-es="Cerca del 88% de los ingresos solares viene del agro. Empezar por Centro, donde está la mayor parte de los ingresos del agro, y probar después con empresas de agua.">About 88% of solar revenue comes from agriculture. Start with Centro, where most agricultural revenue is, and test water utilities next.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Attach maintenance to equipment sales" data-es="Sumar mantenimiento a las ventas de equipos">Attach maintenance to equipment sales</strong>
+        <span class="body" data-en="Each dollar of Services earns about twice the gross profit of a dollar of Ducting, so a small shift in mix raises profit without more orders." data-es="Cada dólar de Servicios deja cerca del doble de ganancia bruta que un dólar de Ductos, así que un pequeño cambio en el mix sube la ganancia sin necesitar más pedidos.">Each dollar of Services earns about twice the gross profit of a dollar of Ducting, so a small shift in mix raises profit without more orders.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">→</span>
+      <div>
+        <strong data-en="Qualify before re-quoting" data-es="Calificar antes de volver a cotizar">Qualify before re-quoting</strong>
+        <span class="body" data-en="Add a check before re-quoting the five low-win customers, and move that time to larger, more winnable quotes." data-es="Agregar un paso de validación antes de volver a cotizarles a los cinco clientes con bajo win rate, y usar ese tiempo en cotizaciones más grandes y con más chances de ganarse.">Add a check before re-quoting the five low-win customers, and move that time to larger, more winnable quotes.</span>
+      </div>
+    </li>
+    </ul>
+  <p data-en="Limitations: the data has no record of why quotes were lost, how long each quote took to prepare, or competitors&#x27; prices. The link between the price increase and the customers who left rests on timing, so it should be confirmed before acting on it." data-es="Limitaciones: los datos no registran por qué se perdieron las cotizaciones, cuánto tiempo llevó preparar cada una, ni los precios de la competencia. La relación entre el aumento de precios y los clientes que se fueron se basa en la coincidencia en el tiempo, así que habría que confirmarla antes de actuar.">Limitations: the data has no record of why quotes were lost, how long each quote took to prepare, or competitors&#x27; prices. The link between the price increase and the customers who left rests on timing, so it should be confirmed before acting on it.</p>
+</section>
+
+<!-- 8. What I learned -->
+<section class="wrap case">
+  <div class="case-head">
+    <span class="case-num">8</span>
+    <h2 data-en="What I learned" data-es="Lo que aprendí">What I learned</h2>
+  </div>
+  <ul class="outcome-list">
+      <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Checking assumptions in the data" data-es="Cuestionar los supuestos de los datos">Checking assumptions in the data</strong>
+        <span class="body" data-en="The price increase only showed up because I checked whether the list price stayed valid over time. Taking it at face value would have produced a false finding that discounting had stopped." data-es="El aumento de precios apareció solo porque revisé si el precio de lista seguía siendo válido en el tiempo. Tomarlo como estaba habría llevado a una conclusión falsa: que se habían dejado de dar descuentos.">The price increase only showed up because I checked whether the list price stayed valid over time. Taking it at face value would have produced a false finding that discounting had stopped.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Reconciling every step" data-es="Conciliar cada paso">Reconciling every step</strong>
+        <span class="body" data-en="Matching row counts and revenue back to the source after every view caught errors early, including a fourth duplicate customer found halfway through the analysis." data-es="Comparar la cantidad de filas y los ingresos con la fuente después de cada vista permitió detectar errores temprano, incluido un cuarto cliente duplicado que encontré a mitad del análisis.">Matching row counts and revenue back to the source after every view caught errors early, including a fourth duplicate customer found halfway through the analysis.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Window functions and CTEs" data-es="Funciones de ventana y CTEs">Window functions and CTEs</strong>
+        <span class="body" data-en="Ranking within groups, period-over-period growth, running totals and customer quintiles, and chaining CTEs to build multi-step logic like churn detection and RFM scores." data-es="Rankings dentro de grupos, crecimiento entre períodos, acumulados y quintiles de clientes, y encadenar CTEs para armar lógica de varios pasos como la detección de clientes perdidos y los puntajes RFM.">Ranking within groups, period-over-period growth, running totals and customer quintiles, and chaining CTEs to build multi-step logic like churn detection and RFM scores.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Comparing like with like" data-es="Comparar lo comparable">Comparing like with like</strong>
+        <span class="body" data-en="Using matching 12-month windows and same-months-of-last-year comparisons kept seasonality and partial years from distorting the results." data-es="Usar períodos equivalentes de 12 meses y comparar con los mismos meses del año anterior evitó que la estacionalidad y los años incompletos distorsionaran los resultados.">Using matching 12-month windows and same-months-of-last-year comparisons kept seasonality and partial years from distorting the results.</span>
+      </div>
+    </li>
+      <li>
+      <span class="check">✓</span>
+      <div>
+        <strong data-en="Designing dashboards around a message" data-es="Diseñar dashboards alrededor de un mensaje">Designing dashboards around a message</strong>
+        <span class="body" data-en="Titling each chart with the point it makes, so the main message is clear at a glance." data-es="Ponerle a cada gráfico un título con lo que muestra, para que el mensaje principal se entienda de un vistazo.">Titling each chart with the point it makes, so the main message is clear at a glance.</span>
+      </div>
+    </li>
+    </ul>
+</section>
+<footer>
+  © <span id="year"></span> Pilar Göttert
+</footer>
+<script src="assets/theme.js"></script>
+</body>
+</html>
